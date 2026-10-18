@@ -1,12 +1,15 @@
 <div align="center">
 
+<img src="assets/capa-readme.svg" alt="Capa do projeto A Arquitetura Invisível do Estudo" width="100%">
+
 # 🧠 A Arquitetura Invisível do Estudo
 
 ### Como estudantes combinam estratégias humanas e Inteligência Artificial na rotina acadêmica
 
 **Um experimento de análise qualitativa, visualização de dados e storytelling interativo**
 
-[![Mural oficial](https://img.shields.io/badge/Acessar-Mural%20oficial-4285F4?style=for-the-badge)](https://mural-embaixadores-br.web.app)
+[![Abrir observatório](https://img.shields.io/badge/Explorar-observat%C3%B3rio-4285F4?style=for-the-badge)](https://enps2015.github.io/observatorio-embaixadores-google-2026/)
+[![Mural oficial](https://img.shields.io/badge/Acessar-Mural%20oficial-34A853?style=for-the-badge)](https://mural-embaixadores-br.web.app)
 [![Autor](https://img.shields.io/badge/Autor-Eric%20Pimentel-34A853?style=for-the-badge)](https://github.com/enps2015)
 
 **Eric Pimentel** · Embaixador Estudantil Google Brasil 2026 · Belém, Pará — 2026
@@ -62,6 +65,52 @@ Permite comparar códigos exploratórios entre as sete categorias do mural, alte
 
 **Fichário Vivo**  
 Reúne uma seleção de exemplos rastreáveis por `row_id`, com pesquisa textual e filtros para facilitar a consulta.
+
+## 🖼️ Capturas de tela
+
+Veja abaixo alguns recortes da experiência web. As imagens estão organizadas por área da aplicação; abra cada item para ampliar a captura em sua resolução original.
+
+<details>
+<summary><strong>01 — Abertura e visão geral do observatório</strong></summary>
+<p align="center">
+  <a href="assets/captura-01-abertura.png"><img src="assets/captura-01-abertura.png" alt="Captura da página inicial, com título, contexto do projeto e indicadores estruturais." width="900"></a>
+</p>
+</details>
+
+<details>
+<summary><strong>02 — O peso da rotina e os desafios relatados</strong></summary>
+<p align="center">
+  <a href="assets/captura-02-rotina-dores.png"><img src="assets/captura-02-rotina-dores.png" alt="Captura do capítulo de rotina e desafios, com distribuição de categorias e códigos exploratórios." width="900"></a>
+</p>
+</details>
+
+<details>
+<summary><strong>03 — Matriz de afinidades</strong></summary>
+<p align="center">
+  <a href="assets/captura-03-matriz-afinidades.png"><img src="assets/captura-03-matriz-afinidades.png" alt="Captura da matriz que cruza categorias do mural com códigos de estratégias humanas e funções da IA." width="900"></a>
+</p>
+</details>
+
+<details>
+<summary><strong>04 — Tear da Rotina: coocorrências entre temas</strong></summary>
+<p align="center">
+  <a href="assets/captura-04-tear-rotina.png"><img src="assets/captura-04-tear-rotina.png" alt="Captura da visualização de coocorrências entre desafios, estratégias humanas e funções atribuídas à IA." width="900"></a>
+</p>
+</details>
+
+<details>
+<summary><strong>05 — Fichário Vivo de Evidências</strong></summary>
+<p align="center">
+  <a href="assets/captura-05-fichario-vivo.png"><img src="assets/captura-05-fichario-vivo.png" alt="Captura do fichário interativo com exemplos de registros, identificadores e filtros temáticos." width="900"></a>
+</p>
+</details>
+
+<details>
+<summary><strong>06 — Metodologia, limitações e créditos</strong></summary>
+<p align="center">
+  <a href="assets/captura-06-metodologia-creditos.png"><img src="assets/captura-06-metodologia-creditos.png" alt="Captura da seção final com notas metodológicas, limitações e créditos do autor." width="900"></a>
+</p>
+</details>
 
 ## 📊 A base em números
 
@@ -123,21 +172,17 @@ cd observatorio-embaixadores-google-2026
 
 > O arquivo principal da aplicação está disponível como `index.html` na raiz do repositório. Basta abrir esse arquivo em um navegador para explorar a versão estática localmente.
 
-## 🌐 Publicar com GitHub Pages
+## 🌐 Acesse o observatório publicado
 
-Como a aplicação é estática, o GitHub Pages é uma opção natural para hospedá-la.
+🚀 **[Abrir A Arquitetura Invisível do Estudo no GitHub Pages](https://enps2015.github.io/observatorio-embaixadores-google-2026/)**
 
-1. Envie o HTML da aplicação para a raiz do repositório e, para facilitar a publicação, renomeie-o para `index.html`.
-2. No GitHub, abra **Settings → Pages**.
-3. Em **Build and deployment**, escolha **Deploy from a branch**.
-4. Selecione a branch `main` e a pasta `/ (root)`.
-5. Salve e aguarde a publicação indicada pelo GitHub Pages.
+A aplicação está hospedada como um site estático pelo GitHub Pages. O código-fonte da aplicação está no arquivo `index.html` deste repositório.
 
-Depois da publicação, o endereço normalmente seguirá o formato:
+### Como publicar atualizações
 
-`https://enps2015.github.io/observatorio-embaixadores-google-2026/`
+Quando alterar a aplicação, envie as mudanças para a branch `main`. Com o GitHub Pages configurado para publicar a partir de `main` e da pasta `/(root)`, o site será atualizado após o término da implantação.
 
-Esse endereço é o formato esperado para um site de projeto; só deve ser divulgado como ativo depois de o GitHub Pages concluir a implantação.
+Para conferir as configurações, acesse **Settings → Pages** no repositório.
 
 ## 📁 Estrutura sugerida do repositório
 
@@ -148,8 +193,15 @@ observatorio-embaixadores-google-2026/
 ├── index.html          # Aplicação web estática
 ├── README.md           # Apresentação, método e instruções
 ├── assets/
-│   └── captura-tela.png  # Imagem de apresentação (opcional)
-└── docs/                # Documentação complementar (opcional)
+│   ├── capa-readme.svg
+│   ├── captura-01-abertura.png
+│   ├── captura-02-rotina-dores.png
+│   ├── captura-03-matriz-afinidades.png
+│   ├── captura-04-tear-rotina.png
+│   ├── captura-05-fichario-vivo.png
+│   └── captura-06-metodologia-creditos.png
+└── docs/
+    └── relatorio-final.md
 ```
 
 Mantenha apenas os materiais necessários para reproduzir, entender e divulgar o projeto. Planilhas de trabalho, registros brutos ou arquivos com informações pessoais não devem ser publicados sem uma avaliação prévia de privacidade e autorização.
