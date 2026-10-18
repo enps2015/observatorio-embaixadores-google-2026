@@ -1,6 +1,10 @@
 # Capturas de tela do projeto
 
-Esta pasta reúne imagens de apresentação da aplicação **A Arquitetura Invisível do Estudo**.
+Esta pasta reúne a capa do README e as capturas de tela de apresentação da aplicação **A Arquitetura Invisível do Estudo**.
+
+## Arquivos principais
+
+- `capa-readme.svg` — capa vetorial horizontal utilizada no topo do README principal.
 
 ## Sugestão de organização
 
