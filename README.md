@@ -130,7 +130,7 @@ Como a aplicação é estática, o GitHub Pages é uma opção natural para hosp
 1. Envie o HTML da aplicação para a raiz do repositório e, para facilitar a publicação, renomeie-o para `index.html`.
 2. No GitHub, abra **Settings → Pages**.
 3. Em **Build and deployment**, escolha **Deploy from a branch**.
-4. Selecione a branch `main) e a pasta `/ (root)`.
+4. Selecione a branch `main` e a pasta `/ (root)`.
 5. Salve e aguarde a publicação indicada pelo GitHub Pages.
 
 Depois da publicação, o endereço normalmente seguirá o formato:
