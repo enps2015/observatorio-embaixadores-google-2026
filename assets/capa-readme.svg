@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="620" viewBox="0 0 1600 620" role="img" aria-labelledby="title desc">
+  <title id="title">A Arquitetura Invisível do Estudo</title>
+  <desc id="desc">Capa do observatório de Eric Pimentel sobre estratégias humanas de aprendizagem e funções atribuídas à Inteligência Artificial em 713 contribuições de um mural acadêmico.</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.58" stop-color="#F8F9FA"/>
+      <stop offset="1" stop-color="#EAF2FF"/>
+    </linearGradient>
+    <linearGradient id="blueLine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4285F4"/>
+      <stop offset="1" stop-color="#8AB4F8"/>
+    </linearGradient>
+    <linearGradient id="redLine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#EA4335"/>
+      <stop offset="1" stop-color="#F28B82"/>
+    </linearGradient>
+    <linearGradient id="greenLine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#34A853"/>
+      <stop offset="1" stop-color="#81C995"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#202124" flood-opacity=".09"/>
+    </filter>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#DADCE0"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="620" rx="30" fill="url(#paper)"/>
+  <circle cx="1325" cy="105" r="260" fill="#DCE9FF" opacity=".52"/>
+  <circle cx="1460" cy="480" r="220" fill="#DDF4E4" opacity=".55"/>
+  <circle cx="890" cy="5" r="170" fill="#FEF0CC" opacity=".48"/>
+  <rect x="870" y="30" width="670" height="560" fill="url(#dots)" opacity=".55"/>
+
+  <g transform="translate(70 54)">
+    <circle cx="8" cy="8" r="7" fill="#4285F4"/>
+    <circle cx="31" cy="8" r="7" fill="#EA4335"/>
+    <circle cx="54" cy="8" r="7" fill="#FBBC04"/>
+    <circle cx="77" cy="8" r="7" fill="#34A853"/>
+    <text x="101" y="14" font-family="Arial, Helvetica, sans-serif" font-size="16" letter-spacing="3.2" font-weight="700" fill="#5F6368">EMBAIXADORES ESTUDANTIS GOOGLE BRASIL 2026</text>
+  </g>
+
+  <g font-family="Georgia, 'Times New Roman', serif" font-weight="700" letter-spacing="-2">
+    <text x="70" y="190" font-size="78" fill="#202124">A Arquitetura</text>
+    <text x="70" y="282" font-size="88" fill="#4285F4">Invisível</text>
+    <text x="462" y="282" font-size="88" fill="#202124">do Estudo</text>
+  </g>
+  <text x="74" y="337" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#5F6368">Como estudantes combinam estratégias humanas</text>
+  <text x="74" y="372" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#5F6368">e Inteligência Artificial na rotina acadêmica.</text>
+
+  <g transform="translate(72 418)" filter="url(#shadow)">
+    <rect width="220" height="92" rx="15" fill="#FFFFFF" stroke="#E0E3E7"/>
+    <rect x="0" y="0" width="7" height="92" rx="3" fill="#4285F4"/>
+    <text x="26" y="42" font-family="Georgia, serif" font-size="34" font-weight="700" fill="#4285F4">713</text>
+    <text x="26" y="68" font-family="Arial, sans-serif" font-size="15" fill="#5F6368">contribuições analisadas</text>
+    <rect x="236" width="195" height="92" rx="15" fill="#FFFFFF" stroke="#E0E3E7"/>
+    <rect x="236" y="0" width="7" height="92" rx="3" fill="#FBBC04"/>
+    <text x="261" y="42" font-family="Georgia, serif" font-size="34" font-weight="700" fill="#9A6700">7</text>
+    <text x="261" y="68" font-family="Arial, sans-serif" font-size="15" fill="#5F6368">categorias originais</text>
+    <rect x="447" width="227" height="92" rx="15" fill="#FFFFFF" stroke="#E0E3E7"/>
+    <rect x="447" y="0" width="7" height="92" rx="3" fill="#34A853"/>
+    <text x="472" y="42" font-family="Georgia, serif" font-size="29" font-weight="700" fill="#188038">DATA STORY</text>
+    <text x="472" y="68" font-family="Arial, sans-serif" font-size="15" fill="#5F6368">exploração interativa</text>
+  </g>
+
+  <!-- Editorial evidence cards -->
+  <g transform="translate(940 95) rotate(-5 110 90)" filter="url(#shadow)">
+    <rect width="210" height="145" rx="17" fill="#FFFFFF" stroke="#E0E3E7"/>
+    <rect width="210" height="12" rx="6" fill="#EA4335"/>
+    <circle cx="26" cy="39" r="9" fill="#FCE8E6"/>
+    <text x="45" y="44" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#202124">Dores &amp; desafios</text>
+    <rect x="22" y="62" width="155" height="7" rx="3.5" fill="#FAD2CE"/>
+    <rect x="22" y="80" width="118" height="7" rx="3.5" fill="#FAD2CE"/>
+    <rect x="22" y="98" width="144" height="7" rx="3.5" fill="#FAD2CE"/>
+    <rect x="22" y="116" width="88" height="7" rx="3.5" fill="#FAD2CE"/>
+  </g>
+  <g transform="translate(1162 74) rotate(5 105 90)" filter="url(#shadow)">
+    <rect width="210" height="145" rx="17" fill="#FFFFFF" stroke="#E0E3E7"/>
+    <rect width="210" height="12" rx="6" fill="#FBBC04"/>
+    <circle cx="26" cy="39" r="9" fill="#FEF7E0"/>
+    <text x="45" y="44" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#202124">Estratégias</text>
+    <rect x="22" y="62" width="155" height="7" rx="3.5" fill="#FCE8B2"/>
+    <rect x="22" y="80" width="118" height="7" rx="3.5" fill="#FCE8B2"/>
+    <rect x="22" y="98" width="144" height="7" rx="3.5" fill="#FCE8B2"/>
+    <rect x="22" y="116" width="88" height="7" rx="3.5" fill="#FCE8B2"/>
+  </g>
+  <g transform="translate(1330 250) rotate(4 103 83)" filter="url(#shadow)">
+    <rect width="206" height="142" rx="17" fill="#FFFFFF" stroke="#E0E3E7"/>
+    <rect width="206" height="12" rx="6" fill="#4285F4"/>
+    <circle cx="25" cy="39" r="9" fill="#E8F0FE"/>
+    <text x="44" y="44" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#202124">Funções da IA</text>
+    <rect x="22" y="62" width="150" height="7" rx="3.5" fill="#D2E3FC"/>
+    <rect x="22" y="80" width="124" height="7" rx="3.5" fill="#D2E3FC"/>
+    <rect x="22" y="98" width="142" height="7" rx="3.5" fill="#D2E3FC"/>
+    <rect x="22" y="116" width="89" height="7" rx="3.5" fill="#D2E3FC"/>
+  </g>
+
+  <!-- Conceptual co-occurrence streams: not causal -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M1010 272 C1080 272 1092 342 1178 342 S1280 342 1328 342" stroke="url(#redLine)" stroke-width="5" opacity=".66"/>
+    <path d="M1010 292 C1080 292 1105 380 1178 380 S1270 395 1328 395" stroke="url(#redLine)" stroke-width="3" opacity=".42"/>
+    <path d="M1010 312 C1080 312 1098 420 1178 420 S1260 440 1328 440" stroke="url(#redLine)" stroke-width="4" opacity=".55"/>
+    <path d="M1200 230 C1200 260 1218 276 1243 294 S1290 318 1328 320" stroke="#FBBC04" stroke-width="5" opacity=".75"/>
+    <path d="M1200 230 C1200 285 1215 345 1243 374 S1290 410 1328 420" stroke="#FBBC04" stroke-width="3" opacity=".5"/>
+    <path d="M1320 225 C1355 243 1374 255 1395 286" stroke="url(#blueLine)" stroke-width="5" opacity=".72"/>
+    <path d="M1320 250 C1360 283 1380 310 1395 345" stroke="url(#blueLine)" stroke-width="3" opacity=".45"/>
+    <path d="M1320 275 C1360 330 1375 375 1395 404" stroke="url(#blueLine)" stroke-width="4" opacity=".6"/>
+    <path d="M1090 438 C1140 470 1190 466 1235 447" stroke="url(#greenLine)" stroke-width="4" opacity=".7"/>
+  </g>
+  <g>
+    <rect x="966" y="255" width="12" height="88" rx="6" fill="#EA4335"/>
+    <rect x="1190" y="335" width="12" height="96" rx="6" fill="#FBBC04"/>
+    <rect x="1401" y="278" width="12" height="143" rx="6" fill="#4285F4"/>
+    <circle cx="1090" cy="438" r="8" fill="#34A853"/>
+    <circle cx="1235" cy="447" r="8" fill="#34A853"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="1.2">
+    <text x="942" y="365" fill="#EA4335">CONTEXTO</text>
+    <text x="1156" y="458" fill="#9A6700">PRÁTICA</text>
+    <text x="1380" y="445" fill="#1A73E8">IA</text>
+  </g>
+
+  <line x1="72" y1="548" x2="1528" y2="548" stroke="#DADCE0" stroke-width="1.5"/>
+  <text x="74" y="582" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#202124">ERIC PIMENTEL</text>
+  <text x="245" y="582" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5F6368">Embaixador Estudantil Google Brasil 2026</text>
+  <text x="1526" y="582" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#5F6368">BELÉM — 2026</text>
+</svg>
