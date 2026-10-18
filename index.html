@@ -1,0 +1,3059 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Arquitetura Invisível do Estudo — Embaixadores Estudantis Google Brasil 2026</title>
+<style>
+  :root {
+    --bg-paper: #F8F9FA;
+    --surface: #FFFFFF;
+    --border-subtle: #E0E3E7;
+    --border-strong: #DADCE0;
+    --text-main: #202124;
+    --text-sec: #5F6368;
+    --text-muted: #70757A;
+    --red-dor: #EA4335;
+    --red-bg: #FCE8E6;
+    --yellow-tip: #FBBC04;
+    --yellow-text: #8F5300;
+    --yellow-bg: #FEF7E0;
+    --blue-gem: #4285F4;
+    --blue-bg: #E8F0FE;
+    --green-rel: #34A853;
+    --green-bg: #E6F4EA;
+    --font-serif: 'Georgia', 'Times New Roman', serif;
+    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    --max-w: 1240px;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-paper);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    padding-top: 4.5rem;
+  }
+
+  section[id], footer[id] {
+    scroll-margin-top: 5.25rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Acessibilidade global de foco */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  [tabindex="0"]:focus-visible {
+    outline: 2px solid var(--blue-gem);
+    outline-offset: 2px;
+  }
+
+  .top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-subtle);
+    box-shadow: 0 4px 20px rgba(32, 33, 36, 0.06);
+    padding: 0.65rem 1rem;
+  }
+  .top-nav::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      var(--blue-gem) 0%, var(--blue-gem) 25%,
+      var(--red-dor) 25%, var(--red-dor) 50%,
+      var(--yellow-tip) 50%, var(--yellow-tip) 75%,
+      var(--green-rel) 75%, var(--green-rel) 100%
+    );
+  }
+  .top-nav-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .brand-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--text-main);
+  }
+  .google-dots {
+    display: inline-flex;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  .google-dots span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .nav-links {
+    display: flex;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-sec);
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.38rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+  }
+  .nav-links li:nth-child(4n+1) a:hover,
+  .nav-links li:nth-child(4n+1) a.active-link {
+    background: var(--red-bg);
+    color: var(--red-dor);
+    border-color: rgba(234, 67, 53, 0.3);
+  }
+  .nav-links li:nth-child(4n+2) a:hover,
+  .nav-links li:nth-child(4n+2) a.active-link {
+    background: var(--yellow-bg);
+    color: var(--yellow-text);
+    border-color: rgba(251, 188, 4, 0.45);
+  }
+  .nav-links li:nth-child(4n+3) a:hover,
+  .nav-links li:nth-child(4n+3) a.active-link {
+    background: var(--blue-bg);
+    color: var(--blue-gem);
+    border-color: rgba(66, 133, 244, 0.3);
+  }
+  .nav-links li:nth-child(4n+4) a:hover,
+  .nav-links li:nth-child(4n+4) a.active-link {
+    background: var(--green-bg);
+    color: var(--green-rel);
+    border-color: rgba(52, 168, 83, 0.3);
+  }
+
+  /* Hero Section */
+  .hero {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 2.75rem 1rem 3rem;
+    border-bottom: 1px solid var(--border-subtle);
+    background:
+      radial-gradient(circle at 92% 12%, rgba(66, 133, 244, 0.07) 0%, transparent 38%),
+      radial-gradient(circle at 8% 88%, rgba(52, 168, 83, 0.06) 0%, transparent 38%);
+  }
+  @media (min-width: 640px) {
+    .hero { padding: 3.5rem 1.5rem 3.5rem; }
+  }
+  .hero-meta-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--blue-gem);
+    background: var(--blue-bg);
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    font-weight: 600;
+    border: 1px solid rgba(66, 133, 244, 0.25);
+  }
+  .author-byline-top {
+    font-size: 0.82rem;
+    color: var(--text-sec);
+    background: var(--surface);
+    border: 1px solid var(--border-subtle);
+    border-left: 3px solid var(--green-rel);
+    padding: 0.3rem 0.85rem;
+    border-radius: 999px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  }
+  .author-byline-top strong {
+    color: var(--text-main);
+    font-weight: 600;
+  }
+  .hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 4.1rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--text-main);
+    max-width: 18ch;
+    margin-bottom: 1rem;
+  }
+  .hero-subtitle {
+    font-size: clamp(1.08rem, 2.2vw, 1.5rem);
+    color: var(--text-sec);
+    font-weight: 400;
+    max-width: 58ch;
+    margin-bottom: 1.75rem;
+  }
+  .thesis-box {
+    background: linear-gradient(90deg, rgba(66, 133, 244, 0.05) 0%, var(--surface) 100%);
+    border: 1px solid var(--border-subtle);
+    border-left: 5px solid var(--blue-gem);
+    border-radius: 8px;
+    padding: 1.25rem 1.35rem;
+    max-width: 78ch;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 3px 12px rgba(66, 133, 244, 0.06);
+  }
+  .thesis-box p {
+    font-size: 1rem;
+    color: var(--text-main);
+  }
+  .thesis-box .method-badge {
+    display: inline-block;
+    margin-top: 0.65rem;
+    font-family: var(--font-mono);
+    font-size: 0.73rem;
+    color: var(--text-sec);
+    background: var(--surface);
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    border: 1px solid var(--border-subtle);
+  }
+
+  /* Destaque Oficial do Link do Mural na Abertura */
+  .mural-source-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    max-width: 78ch;
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-left: 5px solid var(--green-rel);
+    border-radius: 8px;
+    padding: 0.85rem 1.15rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(32, 33, 36, 0.04);
+  }
+  .mural-source-text {
+    font-size: 0.86rem;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .mural-source-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    background: var(--blue-gem);
+    padding: 0.48rem 0.9rem;
+    border-radius: 999px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(66, 133, 244, 0.25);
+  }
+  .mural-source-btn:hover, .mural-source-btn:focus-visible {
+    background: #1A73E8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(66, 133, 244, 0.35);
+  }
+
+  /* Structural Strip in Hero */
+  .structural-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+    gap: 0.85rem;
+    margin-top: 1.5rem;
+  }
+  .stat-note {
+    background: var(--surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 1rem 1.15rem;
+    box-shadow: 0 2px 8px rgba(32, 33, 36, 0.04);
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-note:nth-child(1) { border-top: 4px solid var(--blue-gem); }
+  .stat-note:nth-child(2) { border-top: 4px solid var(--red-dor); }
+  .stat-note:nth-child(3) { border-top: 4px solid var(--yellow-tip); }
+  .stat-note:nth-child(4) { border-top: 4px solid var(--green-rel); }
+  .stat-note:nth-child(1) .num { color: var(--blue-gem); }
+  .stat-note:nth-child(2) .num { color: var(--red-dor); }
+  .stat-note:nth-child(3) .num { color: var(--yellow-text); }
+  .stat-note:nth-child(4) .num { color: var(--green-rel); }
+  .stat-note .num {
+    font-family: var(--font-serif);
+    font-size: 1.85rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  .stat-note .label {
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-top: 0.25rem;
+  }
+  .stat-note .sub {
+    font-size: 0.76rem;
+    color: var(--text-sec);
+    margin-top: 0.2rem;
+  }
+
+  /* Nova Seção 0: Guia de Leitura, Contexto Histórico e Anatomia das Siglas */
+  .guide-section {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 3rem 1rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  @media (min-width: 640px) {
+    .guide-section { padding: 3.5rem 1.5rem; }
+  }
+  .guide-header {
+    max-width: 78ch;
+    margin-bottom: 1.75rem;
+  }
+  .guide-grid-top {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .guide-card {
+    background: var(--surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    padding: 1.35rem;
+    box-shadow: 0 2px 10px rgba(32, 33, 36, 0.03);
+  }
+  .guide-card.hist-card { border-top: 4px solid var(--blue-gem); }
+  .guide-card.rq-card { border-top: 4px solid var(--green-rel); }
+  .guide-card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 0.65rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .guide-card p {
+    font-size: 0.88rem;
+    color: var(--text-sec);
+    margin-bottom: 0.75rem;
+  }
+  .mural-anatomy-triad {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+    gap: 0.65rem;
+    margin: 0.85rem 0;
+  }
+  .triad-item {
+    background: var(--bg-paper);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 0.65rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  .triad-item strong {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    margin-bottom: 0.2rem;
+  }
+  .rq-grid-mini {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    gap: 0.55rem;
+    margin-top: 0.75rem;
+  }
+  .rq-mini-item {
+    background: var(--bg-paper);
+    border: 1px solid var(--border-subtle);
+    border-left: 3px solid var(--green-rel);
+    border-radius: 6px;
+    padding: 0.55rem 0.7rem;
+    font-size: 0.79rem;
+    color: var(--text-sec);
+  }
+  .rq-mini-item strong {
+    font-family: var(--font-mono);
+    color: var(--text-main);
+    font-size: 0.75rem;
+  }
+  .siglas-dictionary-bar {
+    background: var(--surface);
+    border: 1px solid var(--border-subtle);
+    border-top: 4px solid var(--yellow-tip);
+    border-radius: 10px;
+    padding: 1.35rem;
+    box-shadow: 0 2px 10px rgba(32, 33, 36, 0.03);
+  }
+  .siglas-family-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    gap: 0.85rem;
+    margin-top: 0.9rem;
+  }
+  .sigla-family-box {
+    background: var(--bg-paper);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 0.85rem;
+    font-size: 0.81rem;
+  }
+  .sigla-family-box .fam-head {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.78rem;
+    margin-bottom: 0.4rem;
+  }
+
+  /* Glossário de Bolso Contextual em cada Capítulo */
+  .chapter-glossary-box {
+    margin-top: 1rem;
+    background: var(--surface);
+    border: 1px dashed var(--border-strong);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    font-size: 0.78rem;
+    color: var(--text-sec);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+  }
+  .chapter-glossary-title {
+    font-family: var(--font-mono);
+    font-size: 0.73rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-main);
+    margin-bottom: 0.55rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .glossary-dl {
+    display: grid;
+    gap: 0.4rem;
+  }
+  .glossary-item {
+    line-height: 1.45;
+  }
+  .glossary-item code {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.72rem;
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
+  }
+  .g-dor { background: var(--red-bg); color: var(--red-dor); }
+  .g-tip { background: var(--yellow-bg); color: var(--yellow-text); }
+  .g-gem { background: var(--blue-bg); color: var(--blue-gem); }
+  .g-rel { background: var(--green-bg); color: var(--green-rel); }
+  .g-neu { background: #E8EAED; color: var(--text-main); }
+
+  .chapter {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 3rem 1rem;
+    border-bottom: 1px solid var(--border-subtle);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  @media (min-width: 640px) {
+    .chapter { padding: 4rem 1.5rem; gap: 2.5rem; }
+  }
+  @media (min-width: 960px) {
+    .chapter.split {
+      grid-template-columns: 350px 1fr;
+      align-items: start;
+    }
+    .chapter-sticky {
+      position: sticky;
+      top: 5.5rem;
+    }
+  }
+
+  /* Acentos temáticos Google por capítulo nos painéis e citações */
+  #cap1 .viz-panel { border-top: 4px solid var(--red-dor); }
+  #cap1 .chapter-caption { border-left: 3px solid var(--red-dor); background: rgba(234, 67, 53, 0.04); padding: 0.65rem 0.9rem; border-radius: 0 6px 6px 0; }
+  #cap1 .rq-pill { border-color: rgba(234, 67, 53, 0.35); background: var(--red-bg); color: var(--red-dor); }
+
+  #cap2 .viz-panel { border-top: 4px solid var(--yellow-tip); }
+  #cap2 .chapter-caption { border-left: 3px solid var(--yellow-tip); background: rgba(251, 188, 4, 0.08); padding: 0.65rem 0.9rem; border-radius: 0 6px 6px 0; }
+  #cap2 .rq-pill { border-color: rgba(251, 188, 4, 0.5); background: var(--yellow-bg); color: var(--yellow-text); }
+
+  #cap3 .viz-panel { border-top: 4px solid var(--blue-gem); }
+  #cap3 .chapter-caption { border-left: 3px solid var(--blue-gem); background: rgba(66, 133, 244, 0.05); padding: 0.65rem 0.9rem; border-radius: 0 6px 6px 0; }
+  #cap3 .rq-pill { border-color: rgba(66, 133, 244, 0.35); background: var(--blue-bg); color: var(--blue-gem); }
+
+  #cap4 .viz-panel { border-top: 4px solid var(--green-rel); }
+  #cap4 .chapter-caption { border-left: 3px solid var(--green-rel); background: rgba(52, 168, 83, 0.05); padding: 0.65rem 0.9rem; border-radius: 0 6px 6px 0; }
+  #cap4 .rq-pill { border-color: rgba(52, 168, 83, 0.35); background: var(--green-bg); color: var(--green-rel); }
+
+  #cap5 .viz-panel { border-top: 4px solid var(--blue-gem); }
+  #cap5 .chapter-caption { border-left: 3px solid var(--blue-gem); background: rgba(66, 133, 244, 0.05); padding: 0.65rem 0.9rem; border-radius: 0 6px 6px 0; }
+  #cap5 .rq-pill { border-color: rgba(66, 133, 244, 0.35); background: var(--blue-bg); color: var(--blue-gem); }
+
+  #cap6 .viz-panel { border-top: 4px solid var(--green-rel); }
+  #cap6 .chapter-caption { border-left: 3px solid var(--green-rel); background: rgba(52, 168, 83, 0.05); padding: 0.65rem 0.9rem; border-radius: 0 6px 6px 0; }
+  #cap6 .rq-pill { border-color: rgba(52, 168, 83, 0.35); background: var(--green-bg); color: var(--green-rel); }
+
+  #fichario .viz-panel {
+    border-top: 4px solid transparent;
+    background:
+      linear-gradient(var(--surface), var(--surface)) padding-box,
+      linear-gradient(90deg, var(--blue-gem), var(--red-dor), var(--yellow-tip), var(--green-rel)) border-box;
+  }
+
+  .chapter-num {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 0.6rem;
+  }
+  .chapter-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.55rem, 3vw, 2.25rem);
+    line-height: 1.2;
+    margin-bottom: 0.85rem;
+    color: var(--text-main);
+  }
+  .rq-pill {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.73rem;
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    color: var(--text-sec);
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+  .chapter-lead {
+    font-size: 0.98rem;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+  }
+  .chapter-caption {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--text-sec);
+    border-left: 2px solid var(--border-strong);
+    padding-left: 0.9rem;
+    margin: 1.25rem 0;
+  }
+  .caveat-box {
+    background: var(--yellow-bg);
+    border: 1px solid #F5DC87;
+    border-radius: 6px;
+    padding: 0.75rem 0.95rem;
+    font-size: 0.8rem;
+    color: #5C4300;
+    margin-top: 1rem;
+  }
+  .caveat-box strong {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  /* Interactive Panels & Cards */
+  .viz-panel {
+    background: var(--surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    padding: 1.15rem;
+    box-shadow: 0 2px 10px rgba(32, 33, 36, 0.03);
+    min-width: 0;
+  }
+  @media (min-width: 640px) {
+    .viz-panel { padding: 1.5rem; }
+  }
+  .viz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.15rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .viz-title {
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: var(--text-main);
+  }
+  .viz-sub {
+    font-size: 0.81rem;
+    color: var(--text-sec);
+    margin-top: 0.15rem;
+  }
+
+  /* Buttons & Pills */
+  .btn-group {
+    display: inline-flex;
+    background: var(--bg-paper);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 2px;
+    gap: 2px;
+    flex-wrap: wrap;
+  }
+  .btn-toggle {
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: var(--text-sec);
+    font-family: var(--font-sans);
+    font-size: 0.76rem;
+    font-weight: 600;
+    padding: 0.38rem 0.7rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn-toggle:hover {
+    color: var(--text-main);
+  }
+  .btn-toggle.active {
+    background: var(--surface);
+    color: var(--text-main);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+
+  /* Category Marimekko / Proportional Strip */
+  .cat-bar-track {
+    display: flex;
+    width: 100%;
+    height: 38px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border-subtle);
+    margin: 0.75rem 0;
+  }
+  .cat-seg {
+    appearance: none;
+    border: none;
+    border-right: 1px solid rgba(255,255,255,0.25);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0;
+  }
+  .cat-seg:last-child { border-right: none; }
+  .cat-seg:hover, .cat-seg:focus-visible {
+    opacity: 0.88;
+    box-shadow: inset 0 0 0 2px #202124;
+  }
+  .cat-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem 1rem;
+    margin-top: 0.6rem;
+    font-size: 0.77rem;
+    color: var(--text-sec);
+  }
+  .cat-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .cat-swatch {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  /* DOR Spectrum List */
+  .dor-spectrum {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    margin-top: 1.15rem;
+  }
+  .dor-row {
+    appearance: none;
+    width: 100%;
+    text-align: left;
+    font-family: var(--font-sans);
+    display: grid;
+    grid-template-columns: 82px 185px 1fr 82px;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.55rem 0.7rem;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    background: var(--bg-paper);
+    cursor: pointer;
+    transition: border-color 0.15s, background-color 0.15s;
+  }
+  @media (max-width: 680px) {
+    .dor-row {
+      grid-template-columns: 74px 1fr;
+      gap: 0.45rem;
+    }
+    .dor-row .dor-bar-wrap {
+      grid-column: 1 / -1;
+    }
+    .dor-row .dor-stat {
+      grid-column: 1 / -1;
+      text-align: left;
+    }
+  }
+  .dor-row:hover, .dor-row.selected {
+    background: var(--surface);
+    border-color: var(--red-dor);
+  }
+  .dor-code {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    font-weight: 700;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    text-align: center;
+  }
+  .dor-code.is-dor { background: var(--red-bg); color: var(--red-dor); }
+  .dor-code.is-neutral { background: #E8EAED; color: var(--text-sec); }
+  .dor-name {
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--text-main);
+  }
+  .dor-bar-wrap {
+    height: 10px;
+    background: #E8EAED;
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+  .dor-bar-fill {
+    height: 100%;
+    border-radius: 999px;
+  }
+  .dor-stat {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    text-align: right;
+    color: var(--text-sec);
+  }
+
+  .matrix-scroll {
+    overflow-x: auto;
+    margin-top: 0.75rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  .affinity-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 680px;
+    font-size: 0.78rem;
+  }
+  .affinity-table th, .affinity-table td {
+    padding: 0.45rem 0.35rem;
+    border-bottom: 1px solid var(--border-subtle);
+    text-align: center;
+  }
+  .affinity-table th.cat-col {
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-main);
+    width: 165px;
+    position: sticky;
+    left: 0;
+    background: var(--surface);
+    z-index: 2;
+  }
+  .affinity-table thead th {
+    font-family: var(--font-mono);
+    font-size: 0.71rem;
+    color: var(--text-sec);
+    background: var(--bg-paper);
+    border-top: 1px solid var(--border-subtle);
+  }
+  .capsule-cell {
+    appearance: none;
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    padding: 0.25rem 0.4rem;
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.71rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.12s, box-shadow 0.12s, border-color 0.12s;
+  }
+  .capsule-cell:hover, .capsule-cell:focus-visible {
+    transform: scale(1.06);
+    border-color: var(--text-main);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  }
+
+  /* Chapter 3: Functional Role Stations */
+  .role-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+    gap: 0.9rem;
+  }
+  .role-card {
+    appearance: none;
+    text-align: left;
+    width: 100%;
+    font-family: var(--font-sans);
+    background: var(--bg-paper);
+    border: 1px solid var(--border-subtle);
+    border-top: 3px solid var(--blue-gem);
+    border-radius: 8px;
+    padding: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: background-color 0.15s, border-color 0.15s;
+  }
+  .role-card:hover, .role-card.active {
+    background: var(--surface);
+    border-color: var(--blue-gem);
+    box-shadow: 0 3px 10px rgba(66, 133, 244, 0.08);
+  }
+  .role-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.55rem;
+  }
+  .role-code {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--blue-gem);
+    background: var(--blue-bg);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+  }
+  .role-count {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-sec);
+  }
+  .role-title {
+    font-size: 0.96rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    color: var(--text-main);
+  }
+  .role-desc {
+    font-size: 0.82rem;
+    color: var(--text-sec);
+    margin-bottom: 0.8rem;
+  }
+
+  /* Hero 1: Pairwise Co-occurrence SVG Map */
+  .alluvial-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  #alluvial-svg {
+    width: 100%;
+    min-width: 660px;
+    height: auto;
+    display: block;
+    user-select: none;
+  }
+  .alluvial-link {
+    fill: none;
+    stroke-opacity: 0.26;
+    transition: stroke-opacity 0.2s, stroke-width 0.2s;
+    cursor: pointer;
+  }
+  .alluvial-link:hover,
+  .alluvial-link:focus-visible,
+  .alluvial-link.highlighted {
+    stroke-opacity: 0.78;
+    outline: none;
+  }
+  .alluvial-link.dimmed {
+    stroke-opacity: 0.05;
+  }
+  .alluvial-node {
+    cursor: pointer;
+  }
+  .alluvial-node:focus-visible rect {
+    stroke: var(--text-main);
+    stroke-width: 2px;
+  }
+  .alluvial-node text {
+    font-family: var(--font-sans);
+    font-size: 11.5px;
+    fill: var(--text-main);
+    font-weight: 600;
+  }
+  .alluvial-node .node-sub {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    fill: var(--text-sec);
+    font-weight: 400;
+  }
+
+  /* Chapter 5: Blueprint Step Cards */
+  .blueprint-tabs {
+    display: flex;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.15rem;
+  }
+  .bp-tab {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 0.42rem 0.75rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-paper);
+    color: var(--text-sec);
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .bp-tab.active {
+    background: var(--blue-gem);    color: #fff;
+    border-color: var(--blue-gem);
+  }
+  .blueprint-stage {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+    gap: 0.9rem;
+    margin-top: 1rem;
+  }
+  .bp-step {
+    background: var(--bg-paper);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 1rem;
+    position: relative;
+  }
+  .bp-step-tag {
+    font-family: var(--font-mono);
+    font-size: 0.71rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 0.45rem;
+    display: inline-block;
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+  }
+
+  /* Chapter 6: Blind Spots Contrast Grid */
+  .contrast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: 1.1rem;
+  }
+  .territory-box {
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 1.15rem;
+    background: var(--bg-paper);
+  }
+  .territory-box.dense { border-top: 3px solid var(--blue-gem); }
+  .territory-box.frontier { border-top: 3px solid var(--green-rel); }
+
+  .fichario-controls {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 0.65rem;
+    margin-bottom: 1rem;
+    align-items: center;
+  }
+  @media (max-width: 720px) {
+    .fichario-controls {
+      grid-template-columns: 1fr;
+    }
+  }
+  .search-input, .select-filter {
+    width: 100%;
+    padding: 0.55rem 0.8rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 6px;
+    font-family: var(--font-sans);
+    font-size: 0.84rem;
+    background: var(--surface);
+    color: var(--text-main);
+  }
+  .pill-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.15rem;
+  }
+  .filter-pill {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.3rem 0.68rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-strong);
+    background: var(--bg-paper);
+    color: var(--text-sec);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .filter-pill.active {
+    background: var(--blue-gem);
+    color: #fff;
+    border-color: var(--blue-gem);
+    box-shadow: 0 2px 6px rgba(66, 133, 244, 0.25);
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+    gap: 0.95rem;
+  }
+  .evidence-card {
+    background: var(--surface);
+    border: 1px solid var(--border-subtle);
+    border-top: 3px solid var(--blue-gem);
+    border-radius: 8px;
+    padding: 1.05rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    min-width: 0;
+    word-wrap: break-word;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .evidence-card:nth-child(4n+1) { border-top-color: var(--blue-gem); }
+  .evidence-card:nth-child(4n+2) { border-top-color: var(--red-dor); }
+  .evidence-card:nth-child(4n+3) { border-top-color: var(--yellow-tip); }
+  .evidence-card:nth-child(4n+4) { border-top-color: var(--green-rel); }
+  .evidence-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(32, 33, 36, 0.08);
+  }
+  .ev-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 0.5rem;
+  }
+  .ev-id {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-main);
+    background: var(--bg-paper);
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    border: 1px solid var(--border-subtle);
+  }
+  .ev-cat {
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--text-sec);
+  }
+  .ev-block {
+    padding-left: 0.7rem;
+    font-size: 0.83rem;
+    color: var(--text-main);
+  }
+  .ev-block.tip-block { border-left: 3px solid var(--yellow-tip); }
+  .ev-block.gem-block { border-left: 3px solid var(--blue-gem); }
+  .ev-block-label {
+    font-family: var(--font-mono);
+    font-size: 0.69rem;
+    text-transform: uppercase;
+    color: var(--text-sec);
+    margin-bottom: 0.2rem;
+    display: flex;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .code-chip {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 0.08rem 0.36rem;
+    border-radius: 3px;
+  }
+  .chip-dor { background: var(--red-bg); color: var(--red-dor); }
+  .chip-tip { background: var(--yellow-bg); color: var(--yellow-text); }
+  .chip-gem { background: var(--blue-bg); color: var(--blue-gem); }
+  .chip-rel { background: var(--green-bg); color: var(--green-rel); }
+  .chip-trunc { background: #FCE8E6; color: #B3261E; border: 1px dashed #EA4335; }
+
+  .ev-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    padding-top: 0.45rem;
+    border-top: 1px dashed var(--border-subtle);
+    font-family: var(--font-mono);
+    font-size: 0.69rem;
+    color: var(--text-sec);
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 2.25rem 1rem;
+    background: var(--bg-paper);
+    border: 1px dashed var(--border-strong);
+    border-radius: 8px;
+    color: var(--text-sec);
+  }
+
+  /* Footer / Methodology & Author Credits — Destaque Editorial */
+  .footer-method {
+    width: 100%;
+    margin: 3.5rem 0 0;
+    padding: 4rem 1rem 4.5rem;
+    background: linear-gradient(180deg, #17181B 0%, #202124 100%);
+    color: #E8EAED;
+    position: relative;
+    box-shadow: 0 -10px 30px rgba(32, 33, 36, 0.12);
+  }
+  .footer-method::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(
+      90deg,
+      var(--blue-gem) 0%, var(--blue-gem) 25%,
+      var(--red-dor) 25%, var(--red-dor) 50%,
+      var(--yellow-tip) 50%, var(--yellow-tip) 75%,
+      var(--green-rel) 75%, var(--green-rel) 100%
+    );
+  }
+  @media (min-width: 640px) {
+    .footer-method { padding: 4.5rem 1.5rem 5.5rem; }
+  }
+  .method-card {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    background: #282A2E;
+    border: 1px solid #3C4043;
+    border-radius: 14px;
+    padding: 1.75rem;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  }
+  @media (min-width: 640px) {
+    .method-card { padding: 2.5rem; }
+  }
+  .footer-method .eyebrow {
+    background: rgba(66, 133, 244, 0.18) !important;
+    color: #8AB4F8 !important;
+    border: 1px solid rgba(138, 180, 248, 0.35);
+  }
+  .footer-method h2 {
+    color: #FFFFFF !important;
+  }
+  .footer-method p {
+    color: #DADCE0 !important;
+  }
+  .method-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+    font-size: 0.84rem;
+    color: #BDC1C6;
+  }
+  .method-grid > div {
+    background: rgba(32, 33, 36, 0.65);
+    border: 1px solid #3C4043;
+    border-radius: 10px;
+    padding: 1.15rem;
+  }
+  .method-grid > div:nth-child(1) { border-top: 3px solid var(--blue-gem); }
+  .method-grid > div:nth-child(2) { border-top: 3px solid var(--yellow-tip); }
+  .method-grid > div:nth-child(3) { border-top: 3px solid var(--green-rel); }
+  .method-grid strong {
+    color: #FFFFFF !important;
+  }
+  .method-grid code, .footer-method code {
+    background: rgba(255, 255, 255, 0.1);
+    color: #FDD663;
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
+  }
+  .author-credit-footer {
+    margin-top: 2.25rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid #3C4043;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .author-info-block {
+    font-size: 0.86rem;
+    color: #BDC1C6 !important;
+  }
+  .author-info-block div {
+    color: #BDC1C6 !important;
+  }
+  .author-info-block strong {
+    color: #FFFFFF !important;
+    font-size: 0.98rem;
+  }
+  .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    background: #202124;
+    border: 1px solid #5F6368;
+    padding: 0.5rem 0.95rem;
+    border-radius: 999px;
+    transition: all 0.2s ease;
+  }
+  .social-link:nth-child(1) { border-left: 3px solid var(--yellow-tip); }
+  .social-link:nth-child(2) { border-left: 3px solid var(--blue-gem); }
+  .social-link:nth-child(3) { border-left: 3px solid var(--red-dor); }
+  .social-link:nth-child(4) { border-left: 3px solid var(--green-rel); }
+  .social-link:hover, .social-link:focus-visible {
+    background: var(--blue-gem);
+    border-color: var(--blue-gem);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(66, 133, 244, 0.35);
+  }
+</style>
+</head>
+<body>
+
+<nav class="top-nav" aria-label="Navegação por capítulos">
+  <div class="top-nav-inner">
+    <div class="brand-tag">
+      <div class="google-dots" aria-hidden="true">
+        <span style="background:var(--blue-gem)"></span>
+        <span style="background:var(--red-dor)"></span>
+        <span style="background:var(--yellow-tip)"></span>
+        <span style="background:var(--green-rel)"></span>
+      </div>
+      <span>Observatório Editorial • Embaixadores Google BR 2026</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#guia-leitura">0. Guia &amp; Contexto</a></li>
+      <li><a href="#cap1">1. Rotina &amp; Dores</a></li>
+      <li><a href="#cap2">2. Repertório Humano</a></li>
+      <li><a href="#cap3">3. Papel da IA</a></li>
+      <li><a href="#cap4">4. Coocorrências</a></li>
+      <li><a href="#cap5">5. Fluxos Acionáveis</a></li>
+      <li><a href="#cap6">6. Fronteiras</a></li>
+      <li><a href="#fichario">Fichário Vivo</a></li>
+      <li><a href="#metodologia">Metodologia &amp; Créditos</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-meta-top">
+    <div class="eyebrow">Observatório de Inteligência Coletiva • N = 713 Relatos</div>
+    <div class="author-byline-top" aria-label="Autoria do projeto">
+      Projetado por <strong>Eric Pimentel</strong> • Embaixador Estudantil Google Brasil 2026
+    </div>
+  </div>
+
+  <h1>A Arquitetura Invisível do Estudo</h1>
+  <p class="hero-subtitle">Como estudantes combinam estratégias humanas e IA na rotina acadêmica</p>
+
+  <div class="thesis-box">
+    <p>
+      Nos <strong>713 relatos</strong> compartilhados no mural do programa <em>Embaixadores Estudantis Google Brasil 2026</em>, o Gemini e o NotebookLM aparecem menos como "oráculos de respostas prontas" e mais como <strong>estruturadores de caos</strong> — apoiando estudantes que tentam proteger o foco, reter conteúdos densos e conciliar estudos com trabalho.
+    </p>
+    <span class="method-badge">Leitura descritiva do mural • Codificação exploratória assistida por IA (não equivale a telemetria ou eficácia causal)</span>
+  </div>
+
+  <!-- Banner Oficial para a Fonte Primária dos Dados (Mural Oficial) -->
+  <div class="mural-source-banner" aria-label="Fonte primária dos dados no Mural Oficial">
+    <div class="mural-source-text">
+      <span aria-hidden="true">🌐</span>
+      <span><strong>Fonte Primária dos Dados:</strong> Todas as 713 contribuições analisadas neste estudo derivam do Mural Oficial do programa.</span>
+    </div>
+    <a href="https://mural-embaixadores-br.web.app" target="_blank" rel="noopener noreferrer" class="mural-source-btn" aria-label="Acessar o Mural Oficial dos Embaixadores Estudantis Google Brasil 2026 (abre em nova aba)">
+      <span>Acessar Mural Oficial</span>
+      <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+
+  <div class="structural-strip" aria-label="Dados estruturais confirmados da base">
+    <div class="stat-note">
+      <div class="num">713</div>
+      <div class="label">Contribuições no Mural</div>
+      <div class="sub">100% de preenchimento estrutural nos campos Categoria, Tip e Gemini.</div>
+    </div>
+    <div class="stat-note">
+      <div class="num">67,7%</div>
+      <div class="label">Rotina + Estudo (483)</div>
+      <div class="sub">300 em Organização da rotina (42,1%) e 183 em Estudo (25,7%).</div>
+    </div>
+    <div class="stat-note">
+      <div class="num">7</div>
+      <div class="label">Categorias Originais</div>
+      <div class="sub">De grandes áreas de rotina até nichos como Pesquisa (25) e Leituras (15).</div>
+    </div>
+    <div class="stat-note">
+      <div class="num">Rastreável</div>
+      <div class="label">Trilha por <code>row_id</code></div>
+      <div class="sub">Excertos anonimizados (MUR-0001 a MUR-0713) com preservação de sinalizações de auditoria.</div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- SEÇÃO 0: COMO LER ESTE OBSERVATÓRIO, CONTEXTO HISTÓRICO E DICIONÁRIO DE SIGLAS -->
+  <section id="guia-leitura" class="guide-section" aria-label="Guia de leitura, contexto histórico e glossário de siglas">
+    <div class="guide-header">
+      <div class="chapter-num" style="color:var(--blue-gem);">
+        <span>●</span> Capítulo 00 • Ponto de Partida Metodológico
+      </div>
+      <h2 class="chapter-title">Antes de começar: como ler este observatório</h2>
+      <p class="chapter-lead">
+        Para que você aproveite cada gráfico e insight sem se perder em códigos técnicos, preparamos este guia rápido sobre <strong>como o estudo foi conduzido</strong>, <strong>quais perguntas guiaram nossa investigação</strong> e <strong>o que significa cada sigla</strong> usada ao longo dos capítulos.
+      </p>
+    </div>
+
+    <div class="guide-grid-top">
+      <!-- Bloco A: Contexto Histórico e Abordagem -->
+      <div class="guide-card hist-card">
+        <div class="guide-card-title">
+          <span aria-hidden="true">🧭</span>
+          <span>1. De onde vieram os dados e por que adotamos esta abordagem?</span>
+        </div>
+        <p>
+          Durante a jornada do programa <strong>Embaixadores Estudantis Google Brasil 2026</strong>, estudantes universitários de todo o país compartilharam suas melhores práticas no <a href="https://mural-embaixadores-br.web.app" target="_blank" rel="noopener noreferrer" style="color:var(--blue-gem); font-weight:600;">Mural Oficial ↗</a>. Cada uma das <strong>713 postagens</strong> possuía três partes:
+        </p>
+        <div class="mural-anatomy-triad">
+          <div class="triad-item" style="border-left:3px solid var(--text-main);">
+            <strong>1. Categoria</strong>
+            Uma das 7 áreas temáticas escolhidas pelo autor ao publicar no mural.
+          </div>
+          <div class="triad-item" style="border-left:3px solid var(--yellow-tip);">
+            <strong>2. Dica Humana (Tip)</strong>
+            O método, hábito de estudo ou estratégia de organização do estudante (até 400 caracteres).
+          </div>
+          <div class="triad-item" style="border-left:3px solid var(--blue-gem);">
+            <strong>3. Papel da IA (Gemini)</strong>
+            Como o estudante combina o Gemini ou o NotebookLM com esse método (até 350 caracteres).
+          </div>
+        </div>
+        <p style="margin-bottom:0;">
+          <strong>Por que não fizemos apenas uma "nuvem de palavras"?</strong> Contar palavras soltas esconderia o contexto real. Por isso, estruturamos uma pipeline de auditoria de dados (Camada Silver) e uma <strong>codificação qualitativa exploratória assistida por IA</strong> para separar com clareza: <em>qual é a dor real relatada</em>, <em>o que é repertório humano</em> e <em>qual tarefa exata é cumprida pela IA</em> — atribuindo a cada relato um código único (<code>MUR-0001</code> a <code>MUR-0713</code>).
+        </p>
+      </div>
+
+      <!-- Bloco B: As 8 Perguntas de Pesquisa (RQ1 a RQ8) -->
+      <div class="guide-card rq-card">
+        <div class="guide-card-title">
+          <span aria-hidden="true">🔎</span>
+          <span>2. O Mapa de Indagações: O que significa <code>RQ1</code> a <code>RQ8</code>?</span>
+        </div>
+        <p>
+          A sigla <strong><code>RQ</code></strong> vem de <em>Research Question</em> (<strong>Pergunta de Pesquisa</strong>). Em vez de olhar os dados às cegas, formulamos 8 perguntas que organizam os 6 capítulos deste observatório:
+        </p>
+        <div class="rq-grid-mini">
+          <div class="rq-mini-item"><strong>RQ1 (Dores):</strong> Quais obstáculos acadêmicos e de rotina são explicitamente relatados?</div>
+          <div class="rq-mini-item"><strong>RQ2 (Estratégias):</strong> Que métodos humanos de estudo e organização são usados ou recomendados?</div>
+          <div class="rq-mini-item"><strong>RQ3 (Papel da IA):</strong> Que funções práticas são atribuídas ao Gemini e ao NotebookLM?</div>
+          <div class="rq-mini-item"><strong>RQ4 (Relação):</strong> Como o hábito humano e a IA se conectam (complemento, delegação, tutoria ou integração)?</div>
+          <div class="rq-mini-item"><strong>RQ5 (Operacionalidade):</strong> Quão detalhados e passo a passo são os fluxos descritos?</div>
+          <div class="rq-mini-item"><strong>RQ6 (Padrões e Nichos):</strong> O que atravessa todas as categorias e o que é próprio de nichos como Pesquisa e Leituras?</div>
+          <div class="rq-mini-item"><strong>RQ7 (Fronteiras):</strong> Quais necessidades ou recursos quase não aparecem nos relatos?</div>
+          <div class="rq-mini-item"><strong>RQ8 (Inspiração):</strong> Quais trilhas reais servem de modelo acionável para a comunidade estudantil?</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloco C: Dicionário Visual das Famílias de Siglas -->
+    <div class="siglas-dictionary-bar">
+      <div class="guide-card-title" style="margin-bottom:0.25rem;">
+        <span aria-hidden="true">🏷️</span>
+        <span>3. Dicionário Visual Rápido: As 5 Famílias de Siglas do Observatório</span>
+      </div>
+      <p style="font-size:0.84rem; color:var(--text-sec);">
+        Cada cor oficial do Google representa uma dimensão nos gráficos. Além disso, <strong>cada capítulo possui seu próprio "Guia de Siglas de Bolso" na coluna lateral</strong> para consulta imediata:
+      </p>
+      <div class="siglas-family-grid">
+        <div class="sigla-family-box" style="border-top:3px solid var(--text-main);">
+          <div class="fam-head"><span class="code-chip g-neu">MUR-0001 a 0713</span></div>
+          <div><strong>ID do Relato no Mural:</strong> Identificador único de cada linha da planilha, garantindo anonimato e permitindo rastrear a evidência original.</div>
+        </div>
+        <div class="sigla-family-box" style="border-top:3px solid var(--red-dor);">
+          <div class="fam-head"><span class="code-chip chip-dor">DOR-00 a DOR-11</span></div>
+          <div><strong>Dores e Obstáculos (Vermelho):</strong> Problemas relatados pelo estudante (ex.: retenção, foco, falta de tempo). <code>DOR-00</code> indica dica direta sem dor declarada.</div>
+        </div>
+        <div class="sigla-family-box" style="border-top:3px solid var(--yellow-tip);">
+          <div class="fam-head"><span class="code-chip chip-tip">TIP-01 a TIP-06</span></div>
+          <div><strong>Estratégia Humana (Amarelo):</strong> Práticas do campo <em>Tip</em>, como planejar prazos (<code>TIP-02</code>), fatiar microtarefas (<code>TIP-01</code>) ou usar flashcards (<code>TIP-03</code>).</div>
+        </div>
+        <div class="sigla-family-box" style="border-top:3px solid var(--blue-gem);">
+          <div class="fam-head"><span class="code-chip chip-gem">GEM • META • MOD • CTX</span></div>
+          <div><strong>Ecossistema IA (Azul):</strong> Função da IA (<code>GEM</code>), estatuto do relato (<code>META</code>: vivido vs. recomendação), modalidade (<code>MOD</code>) e ferramenta citada (<code>CTX</code>).</div>
+        </div>
+        <div class="sigla-family-box" style="border-top:3px solid var(--green-rel);">
+          <div class="fam-head"><span class="code-chip chip-rel">REL-COMP / DELEG / TUT</span></div>
+          <div><strong>Relação Mente–Máquina (Verde):</strong> Indica se a IA complementa o estudante (<code>REL-COMP</code>), recebe tarefa delegada (<code>REL-DELEG</code>) ou atua como tutora (<code>REL-TUT</code>).</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cap1" class="chapter split">
+    <div class="chapter-sticky">
+      <div class="chapter-num" style="color:var(--red-dor);">
+        <span>●</span> Capítulo 01
+      </div>
+      <h2 class="chapter-title">O peso da rotina antes do prompt</h2>
+      <span class="rq-pill">RQ1 &amp; RQ6 • Dores e Categorias</span>
+      <p class="chapter-lead">
+        Quando um problema é explicitamente relatado no mural, a maior pressão descrita recai sobre a <strong>retenção e revisão de conteúdo (<code>DOR-05</code>, 197 registros / 27,6%)</strong>, a <strong>proteção do foco contra distrações (<code>DOR-04</code>, 123 / 17,3%)</strong> e o <strong>conflito de prazos (<code>DOR-02</code>, 108 / 15,1%)</strong>.
+      </p>
+      <p class="chapter-lead">
+        Ao mesmo tempo, <strong>33,9% dos registros (242 de 713)</strong> compartilham uma técnica ou recomendação direta sem declarar um sofrimento ou obstáculo pessoal explícito (<code>DOR-00</code>).
+      </p>
+      <blockquote class="chapter-caption">
+        "Antes de abrir o chat da IA, o desafio descrito no mural é humano: reter o que foi lido, blindar a atenção e caber dentro de 24 horas entre aula, estágio e trabalho."
+      </blockquote>
+      <div class="caveat-box">
+        <strong>Nota de Leitura:</strong> As contagens de <code>DOR</code> derivam da codificação exploratória assistida por IA (multirrótulo sobre N = 713, podendo somar mais de 100%). Selecione uma dor ao lado para inspecionar exemplos reais por <code>row_id</code>.
+      </div>
+      <div class="chapter-glossary-box" aria-label="Guia de siglas do Capítulo 1">
+        <div class="chapter-glossary-title">📖 Guia de Siglas deste Capítulo</div>
+        <div class="glossary-dl">
+          <div class="glossary-item"><code class="g-neu">RQ1 &amp; RQ6</code> Perguntas sobre quais dores são relatadas e como se distribuem nas 7 categorias.</div>
+          <div class="glossary-item"><code class="g-neu">DOR-00</code> Relato de dica direta (sem sofrimento ou problema explícito declarado).</div>
+          <div class="glossary-item"><code class="g-dor">DOR-05</code> Retenção/revisão • <code class="g-dor">DOR-04</code> Foco/distração • <code class="g-dor">DOR-02</code> Falta de tempo/prazos.</div>
+          <div class="glossary-item"><code class="g-dor">DOR-06</code> Conteúdo difícil • <code class="g-dor">DOR-03</code> Procrastinação • <code class="g-dor">DOR-01</code> Sobrecarga • <code class="g-dor">DOR-07</code> Volume de leituras.</div>
+          <div class="glossary-item"><code class="g-dor">DOR-10</code> Conciliar trabalho/estudo • <code class="g-dor">DOR-11</code> Desorganização • <code class="g-dor">DOR-09</code> Controle de pendências.</div>
+          <div class="glossary-item"><code class="g-neu">MUR-XXXX</code> Código único do relato no Mural Oficial.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="viz-panel">
+      <div class="viz-header">
+        <div>
+          <div class="viz-title">A Porta de Entrada Estrutural: As 7 Categorias Originais (N = 713)</div>
+          <div class="viz-sub">Proporção exata de registros submetidos em cada categoria do mural (clique ou pressione Enter em um segmento para filtrar o Fichário Vivo).</div>
+        </div>
+      </div>
+
+      <div class="cat-bar-track" id="cat-proporcional-bar" role="group" aria-label="Filtros por categoria nas 7 categorias originais em 713 registros"></div>
+      <div class="cat-legend" id="cat-proporcional-legend"></div>
+
+      <div class="viz-header" style="margin-top:2rem;">
+        <div>
+          <div class="viz-title">Espectro de Pressão Acadêmica vs. Dica Direta (Codificação Exploratória)</div>
+          <div class="viz-sub">Selecione qualquer faixa abaixo para filtrar os exemplos correspondentes da base.</div>
+        </div>
+        <button class="btn-toggle" id="btn-reset-dor" type="button">Mostrar amostra geral</button>
+      </div>
+
+      <div class="dor-spectrum" id="dor-spectrum-list"></div>
+
+      <div id="dor-evidence-drawer" style="margin-top:1.25rem; padding:1rem; background:var(--bg-paper); border-radius:8px; border:1px solid var(--border-subtle);" aria-live="polite">
+        <div style="font-family:var(--font-mono); font-size:0.74rem; color:var(--text-sec); margin-bottom:0.5rem;" id="dor-drawer-title">
+          EVIDÊNCIAS RASTREÁVEIS SELECIONADAS (SELECIONE UMA BARRA ACIMA)
+        </div>
+        <div id="dor-drawer-content" style="display:grid; gap:0.65rem;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPÍTULO 2 + HERO 2 (MATRIZ DE AFINIDADES) -->
+  <section id="cap2" class="chapter split">
+    <div class="chapter-sticky">
+      <div class="chapter-num" style="color:var(--yellow-text);">
+        <span>●</span> Capítulo 02
+      </div>
+      <h2 class="chapter-title">O repertório humano de sobrevivência acadêmica</h2>
+      <span class="rq-pill">RQ2 &amp; RQ6 • Estratégias Humanas e Afinidades</span>
+      <p class="chapter-lead">
+        Na reconciliação verificada sobre os 713 registros (<code>contagens_observadas</code>), o repertório humano descrito apoia-se sobretudo no <strong>planejamento temporal e gestão de prazos (<code>TIP-02</code>, 403 registros / 56,5%)</strong> e na <strong>decomposição de entregas grandes em microtarefas (<code>TIP-01</code>, 190 / 26,6%)</strong>.
+      </p>
+      <p class="chapter-lead">
+        Em seguida destacam-se a <strong>curadoria e centralização documental em pastas e cadernos (<code>TIP-04</code>, 147 / 20,6%)</strong>, a <strong>proteção ambiental do foco (<code>TIP-05</code>, 132 / 18,5%)</strong>, os <strong>métodos ativos de revisão por questões e flashcards (<code>TIP-03</code>, 126 / 17,7%)</strong> e a <strong>busca de fontes (<code>TIP-06</code>, 36 / 5,0%)</strong>, além de <code>TIP-OUT</code> (117 / 16,4%).
+      </p>
+      <blockquote class="chapter-caption">
+        "Nenhum prompt substitui o método. Dos blocos de 20 minutos ao estudo ativo por questões, os relatos mostram que a estratégia nasce no planejamento humano antes de chegar à tela."
+      </blockquote>
+      <div class="caveat-box">
+        <strong>Compensação de Escala:</strong> Como <em>Organização da rotina</em> tem 300 registros e <em>Leituras</em> tem 15, alterne a matriz ao lado para <strong>"% na Categoria"</strong> para observar os nichos sem distorção pelo tamanho do grupo.
+      </div>
+      <div class="chapter-glossary-box" aria-label="Guia de siglas do Capítulo 2">
+        <div class="chapter-glossary-title">📖 Guia de Siglas deste Capítulo</div>
+        <div class="glossary-dl">
+          <div class="glossary-item"><code class="g-neu">RQ2 &amp; RQ6</code> Perguntas sobre quais estratégias humanas são usadas e como variam por categoria.</div>
+          <div class="glossary-item"><code class="g-tip">TIP-02</code> Planejamento temporal/agenda • <code class="g-tip">TIP-01</code> Decomposição em microtarefas.</div>
+          <div class="glossary-item"><code class="g-tip">TIP-04</code> Curadoria/centralização de notas • <code class="g-tip">TIP-05</code> Proteção ambiental do foco.</div>
+          <div class="glossary-item"><code class="g-tip">TIP-03</code> Estudo ativo/flashcards/questões • <code class="g-tip">TIP-06</code> Busca de fontes/artigos • <code class="g-tip">TIP-OUT</code> Outras dicas.</div>
+          <div class="glossary-item"><code class="g-gem">GEM-01 a 04</code> Colunas azuis na matriz que mostram as funções da IA cruzadas com cada categoria.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="viz-panel">
+      <div class="viz-header">
+        <div>
+          <div class="viz-title">Hero B — Matriz de Afinidades por Categoria (<code>TIP</code> &amp; <code>GEM</code>)</div>
+          <div class="viz-sub">Coocorrência observada entre as 7 categorias originais do mural e os códigos exploratórios.</div>
+        </div>
+        <div class="btn-group" role="group" aria-label="Modo de exibição da matriz">
+          <button type="button" class="btn-toggle active" data-matrix-mode="pct" id="btn-mat-pct" aria-pressed="true">% na Categoria</button>
+          <button type="button" class="btn-toggle" data-matrix-mode="abs" id="btn-mat-abs" aria-pressed="false">Contagem Absoluta</button>
+        </div>
+      </div>
+
+      <div class="matrix-scroll">
+        <table class="affinity-table" id="affinity-matrix" aria-label="Matriz de afinidades entre categorias e códigos TIP e GEM"></table>
+      </div>
+
+      <div id="matrix-status-note" style="margin-top:0.9rem; font-size:0.8rem; color:var(--text-sec); display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem;" aria-live="polite">
+        <span>Dica: Navegue via teclado (Tab/Enter) ou passe o cursor em qualquer cápsula para ler a intersecção exata.</span>
+        <span id="matrix-hover-readout" style="font-family:var(--font-mono); font-weight:600; color:var(--text-main);">Selecione uma célula</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="cap3" class="chapter split">
+    <div class="chapter-sticky">
+      <div class="chapter-num" style="color:var(--blue-gem);">
+        <span>●</span> Capítulo 03
+      </div>
+      <h2 class="chapter-title">A IA como organizadora e descompressora cognitiva</h2>
+      <span class="rq-pill">RQ3 • Funções Atribuídas ao Gemini e NotebookLM</span>
+      <p class="chapter-lead">
+        A função mais frequentemente atribuída à IA nos relatos não é responder dúvidas teóricas do zero, mas <strong>estruturar entradas brutas, listas de pendências e planos de ensino em cronogramas, tabelas ou checklists (<code>GEM-01</code>, 404 registros / 56,7%)</strong>.
+      </p>
+      <p class="chapter-lead">
+        Em segundo plano aparecem a <strong>geração de artefatos de estudo como resumos, flashcards e simulados (<code>GEM-02</code>, 138 / 19,4%)</strong> e a <strong>tutoria dialógica ou debate crítico (<code>GEM-03</code>, 96 / 13,5%)</strong>.
+      </p>
+      <blockquote class="chapter-caption">
+        "Mais do que responder perguntas, a IA aparece nos relatos como um filtro contra a paralisia: recebe o 'descarrego mental' bruto e devolve estrutura, prioridades e material de revisão."
+      </blockquote>
+      <div class="caveat-box">
+        <strong>Fronteira Estrita:</strong> <code>GEM-04</code> (3 registros / 0,4%) exigiu evidência textual explícita de ação integrada (inserir/alterar eventos na Agenda/Tarefas). Já <code>GEM-OUT</code> (183 registros / 25,7%) reúne descrições amplas sobre a ajuda da IA sem uma das 4 funções específicas detalhadas.
+      </div>
+      <div class="chapter-glossary-box" aria-label="Guia de siglas do Capítulo 3">
+        <div class="chapter-glossary-title">📖 Guia de Siglas deste Capítulo</div>
+        <div class="glossary-dl">
+          <div class="glossary-item"><code class="g-neu">RQ3</code> Pergunta sobre quais funções práticas são atribuídas ao Gemini e ao NotebookLM.</div>
+          <div class="glossary-item"><code class="g-gem">GEM-01</code> Estruturador de caos (transformar listas/planos brutos em cronogramas e checklists).</div>
+          <div class="glossary-item"><code class="g-gem">GEM-02</code> Fábrica de artefatos de estudo (gerar resumos, flashcards, simulados e quizzes).</div>
+          <div class="glossary-item"><code class="g-gem">GEM-03</code> Tutoria dialógica e debate crítico (explicar sob outra ótica, arguição socrática).</div>
+          <div class="glossary-item"><code class="g-gem">GEM-04</code> Integração direta explícita (inserir/alterar compromissos via comando na Agenda/Tarefas).</div>
+          <div class="glossary-item"><code class="g-gem">GEM-OUT</code> Menções amplas ou genéricas de ajuda da IA fora das 4 classes acima.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="viz-panel">
+      <div class="viz-header">
+        <div>
+          <div class="viz-title">Estações Funcionais do Ecossistema (Codificação Exploratória Assistida por IA)</div>
+          <div class="viz-sub">Selecione uma estação para examinar como o papel da IA se diferencia e inspecionar exemplos verificados.</div>
+        </div>
+      </div>
+
+      <div class="role-grid" id="gem-role-grid" role="group" aria-label="Estações funcionais do Gemini"></div>
+
+      <div id="gem-station-detail" style="margin-top:1.25rem; background:var(--bg-paper); border:1px solid var(--border-subtle); border-radius:8px; padding:1.15rem;" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- CAPÍTULO 4 + HERO 1 (MAPA DE COOCORRÊNCIAS POR PARES) -->
+  <section id="cap4" class="chapter">
+    <div style="max-width:78ch;">
+      <div class="chapter-num" style="color:var(--green-rel);">
+        <span>●</span> Capítulo 04 • Visualização Hero A
+      </div>
+      <h2 class="chapter-title">A coreografia entre mente e máquina</h2>
+      <span class="rq-pill">RQ4 • Coocorrência entre Dor, Prática Humana e Papel da IA</span>
+      <p class="chapter-lead">
+        Como as dores relatadas, as estratégias humanas e o papel da IA se cruzam nos mesmos registros? Na codificação atual (N = 713), predominam relações de <strong>complementaridade (<code>REL-COMP</code>, 324 registros / 45,4%)</strong> — onde a IA organiza ou expande um método conduzido pelo estudante — e de <strong>delegação operacional (<code>REL-DELEG</code>, 138 / 19,4%)</strong>, quando a montagem de resumos, quizzes ou flashcards é transferida à ferramenta. A tutoria dialógica soma <strong>63 registros (<code>REL-TUT</code>, 8,8%)</strong>, a integração explícita soma <strong>3 registros (<code>REL-INTEG</code>, 0,4%)</strong> e em <strong>185 registros (<code>REL-INC</code>, 25,9%)</strong> o relato é curto demais para estabelecer um vínculo explícito.
+      </p>
+      <blockquote class="chapter-caption">
+        "Quem lidera o fluxo? Nos relatos mais detalhados, o estudante define o critério e o recorte; a IA entra para converter anotações em exercícios, fatiar etapas ou debater pontos cegos."
+      </blockquote>
+      <div class="chapter-glossary-box" aria-label="Guia de siglas do Capítulo 4">
+        <div class="chapter-glossary-title">📖 Guia de Siglas deste Capítulo</div>
+        <div class="glossary-dl" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));">
+          <div class="glossary-item"><code class="g-neu">RQ4</code> Pergunta sobre como estratégia humana (<code class="g-tip">TIP</code>) e IA (<code class="g-gem">GEM</code>) se conectam nos relatos.</div>
+          <div class="glossary-item"><code class="g-rel">REL-COMP</code> Complementaridade: o estudante conduz o método e a IA estrutura ou expande.</div>
+          <div class="glossary-item"><code class="g-rel">REL-DELEG</code> Delegação operacional: a montagem de resumos, quizzes ou flashcards é transferida à IA.</div>
+          <div class="glossary-item"><code class="g-rel">REL-TUT</code> Tutoria/diálogo: IA usada como interlocutora explicativa ou sparring crítico.</div>
+          <div class="glossary-item"><code class="g-rel">REL-INTEG</code> Integração explícita entre ferramentas • <code class="g-rel">REL-INC</code> Vínculo incerto em relatos curtos.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="viz-panel">
+      <div class="viz-header">
+        <div>
+          <div class="viz-title">Hero A — Mapa de Coocorrências por Pares (<code>DOR ↔ TIP</code> e <code>TIP ↔ GEM</code> — Visão Parcial dos Códigos Principais)</div>
+          <div class="viz-sub">
+            <strong>Regra de leitura metodológica:</strong> Como a codificação é multirrótulo, as conexões à esquerda (<code>DOR ↔ TIP</code>) e à direita (<code>TIP ↔ GEM</code>) representam <strong>coocorrências independentes por pares de códigos no mesmo registro</strong> (não há conservação de fluxo contínua nem implicação de caminho tripartido único, nem relação de causalidade). Para preservar a legibilidade visual, este diagrama parcial exibe os códigos de maior volume e omite códigos de menor frequência (<code>DOR-11</code>=34, <code>DOR-09</code>=5, <code>DOR-08</code>=0, <code>TIP-06</code>=36, <code>TIP-OUT</code>=117 e <code>GEM-04</code>=3), documentados nas tabelas e capítulos específicos.
+          </div>
+        </div>
+        <div class="btn-group" role="group" aria-label="Controles do Mapa de Coocorrências">
+          <button type="button" class="btn-toggle active" id="btn-tear-with-dor" aria-pressed="true">Apenas com Dor Explícita</button>
+          <button type="button" class="btn-toggle" id="btn-tear-all" aria-pressed="false">Incluir DOR-00 (Sem dor declarada)</button>
+          <button type="button" class="btn-toggle" id="btn-tear-reset">Limpar Seleção</button>
+        </div>
+      </div>
+
+      <div class="alluvial-wrap">
+        <svg id="alluvial-svg" viewBox="0 0 960 520" role="group" aria-label="Mapa interativo de coocorrências por pares entre Dores, Práticas Humanas e Funções da IA"></svg>
+      </div>
+
+      <div id="tear-selection-box" style="margin-top:1rem; padding:1rem; background:var(--bg-paper); border-radius:8px; border:1px solid var(--border-subtle);" aria-live="polite">
+        <div id="tear-selection-title" style="font-family:var(--font-mono); font-size:0.75rem; font-weight:700; color:var(--text-sec); margin-bottom:0.5rem;">
+          PAR OU NÓ SELECIONADO NO MAPA (CLIQUE OU PRESSIONE ENTER EM UM NÓ OU CONEXÃO ACIMA)
+        </div>
+        <div id="tear-selection-cards" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap:0.75rem;"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cap5" class="chapter split">
+    <div class="chapter-sticky">
+      <div class="chapter-num" style="color:var(--blue-gem);">
+        <span>●</span> Capítulo 05
+      </div>
+      <h2 class="chapter-title">Anatomia de fluxos acionáveis</h2>
+      <span class="rq-pill">RQ5 &amp; RQ8 • Do Conselho Geral ao Passo a Passo</span>
+      <p class="chapter-lead">
+        Na versão reconciliada (<code>contagens_observadas</code>, N = 713), os relatos do mural distribuem-se entre <strong>experiências pessoais descritas na prática (<code>META-01</code>, 378 registros / 53,0%)</strong>, <strong>recomendações ou instruções prescritivas para colegas (<code>META-02</code>, 271 registros / 38,0%)</strong>, <strong>afirmações genéricas sobre capacidades da IA (<code>META-04</code>, 51 registros / 7,2%)</strong> e <strong>usos hipotéticos ou futuros (<code>META-03</code>, 13 registros / 1,8%)</strong>.
+      </p>
+      <p class="chapter-lead">
+        Quando examinamos os exemplos mais detalhados, encontramos trilhas completas que especificam o que entra (planos de ensino, slides, escopo de projeto), o comando dado ao modelo e o artefato que retorna para a rotina.
+      </p>
+      <blockquote class="chapter-caption">
+        "Veja como ideias abstratas viram prática: explore seis trilhas descritas no mural que mostram exatamente o que entra no prompt, como o material é processado e o que volta para a rotina."
+      </blockquote>
+      <div class="caveat-box">
+        <strong>Ressalva sobre Especificidade:</strong> Embora uma heurística inicial tenha marcado 571/713 registros como <code>S3</code>, essa contagem reflete extensão e marcadores sintáticos, não devendo ser lida como índice de maturidade pedagógica.
+      </div>
+      <div class="chapter-glossary-box" aria-label="Guia de siglas do Capítulo 5">
+        <div class="chapter-glossary-title">📖 Guia de Siglas deste Capítulo</div>
+        <div class="glossary-dl">
+          <div class="glossary-item"><code class="g-neu">RQ5 &amp; RQ8</code> Perguntas sobre o nível de detalhamento operacional dos relatos e exemplos práticos.</div>
+          <div class="glossary-item"><code class="g-gem">META-01</code> Experiência pessoal de uso relatada na prática pelo estudante (53,0%).</div>
+          <div class="glossary-item"><code class="g-gem">META-02</code> Recomendação ou instrução em tom de conselho para colegas (38,0%).</div>
+          <div class="glossary-item"><code class="g-gem">META-04</code> Afirmação geral sobre a capacidade da IA (7,2%) • <code class="g-gem">META-03</code> Uso hipotético/futuro (1,8%).</div>
+          <div class="glossary-item"><code class="g-neu">S0 a S3</code> Níveis técnicos de detalhe textual (onde <code>S3</code> indica descrição com etapas/contexto).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="viz-panel">
+      <div class="viz-header">
+        <div>
+          <div class="viz-title">Trilho de Blueprints Reais (Rastreáveis por <code>row_id</code>)</div>
+          <div class="viz-sub">Selecione um registro exemplar abaixo para inspecionar sua anatomia operacional e eventuais sinalizações de truncamento na fonte.</div>
+        </div>
+      </div>
+
+      <div class="blueprint-tabs" id="blueprint-tabs" role="tablist" aria-label="Exemplos de fluxos acionáveis"></div>
+      <div id="blueprint-content" role="tabpanel" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- CAPÍTULO 6 -->
+  <section id="cap6" class="chapter split">
+    <div class="chapter-sticky">
+      <div class="chapter-num" style="color:var(--green-rel);">
+        <span>●</span> Capítulo 06
+      </div>
+      <h2 class="chapter-title">Pontos cegos e fronteiras abertas</h2>
+      <span class="rq-pill">RQ7 &amp; RQ8 • Territórios Densos vs. Silenciosos</span>
+      <p class="chapter-lead">
+        O que aparece em menor volume nos relatos? Enquanto a criação de cronogramas e resumos domina o mural, temas como <strong>descoberta e seleção de fontes científicas em repositórios (<code>TIP-06</code>, 36 registros / 5,0%; <code>DOR-08</code>, 0 dores explícitas)</strong>, <strong>modalidade de interação por voz/áudio (<code>MOD-VOZ</code>, 23 registros / 3,2%; menção explícita a <code>CTX-LIVE</code> em 1 registro / 0,1%)</strong> e <strong>acompanhamento explícito de pendências (<code>DOR-09</code>, 5 registros / 0,7%)</strong> formam nichos específicos.
+      </p>
+      <blockquote class="chapter-caption">
+        "Enquanto resumos e cronogramas dominam o mural, usos como debate por voz, curadoria de fontes científicas e mitigação de troca de contexto despontam como fronteiras a explorar."
+      </blockquote>
+      <div class="caveat-box">
+        <strong>O que o silêncio significa:</strong> Baixa frequência no mural indica apenas menor presença nos textos enviados e na codificação atual — não ausência real dessas práticas na vida dos estudantes.
+      </div>
+      <div class="chapter-glossary-box" aria-label="Guia de siglas do Capítulo 6">
+        <div class="chapter-glossary-title">📖 Guia de Siglas deste Capítulo</div>
+        <div class="glossary-dl">
+          <div class="glossary-item"><code class="g-neu">RQ7 &amp; RQ8</code> Perguntas sobre necessidades menos frequentes nos relatos e oportunidades abertas.</div>
+          <div class="glossary-item"><code class="g-gem">MOD-VOZ</code> Interação por voz/áudio • <code class="g-gem">MOD-DOC</code> Submissão de documentos/PDFs • <code class="g-gem">MOD-TXT</code> Chat em texto.</div>
+          <div class="glossary-item"><code class="g-gem">CTX-LIVE</code> Menção explícita ao Gemini Live • <code class="g-gem">CTX-NBLM</code> NotebookLM • <code class="g-gem">CTX-WS</code> Google Workspace/Agenda/Drive.</div>
+          <div class="glossary-item"><code class="g-tip">TIP-06</code> Estratégia de busca de artigos em repositórios • <code class="g-dor">DOR-08</code> Dor explícita de achar fontes.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="viz-panel">
+      <div class="viz-header">
+        <div>
+          <div class="viz-title">Mapa de Contraste: Onde o Mural Concentra vs. Fronteiras de Baixa Densidade</div>
+          <div class="viz-sub">Comparação direta entre práticas recorrentes e nichos emergentes na codificação exploratória (N = 713).</div>
+        </div>
+      </div>
+
+      <div class="contrast-grid">
+        <div class="territory-box dense">
+          <div style="font-family:var(--font-mono); font-size:0.74rem; color:var(--blue-gem); font-weight:700; text-transform:uppercase; margin-bottom:0.4rem;">
+            Zonas de Alta Densidade no Mural
+          </div>
+          <h3 style="font-size:1.02rem; margin-bottom:0.65rem;">Estruturação de Rotina e Revisão Direta</h3>
+          <ul style="list-style:none; display:grid; gap:0.55rem; font-size:0.84rem;">
+            <li><strong><code>GEM-01</code> (404 / 56,7%):</strong> Converter listas caóticas e planos de aula em cronogramas e prioridades.</li>
+            <li><strong><code>TIP-02</code> (403 / 56,5%):</strong> Planejamento semanal/diário de prazos, agendas e blocos de tempo.</li>
+            <li><strong><code>TIP-01</code> (190 / 26,6%):</strong> Decomposição de projetos extensos em microtarefas de 20–45 min.</li>
+            <li><strong><code>GEM-02</code> (138 / 19,4%):</strong> Geração delegada de resumos, flashcards e simulados de revisão.</li>
+          </ul>
+        </div>
+
+        <div class="territory-box frontier">
+          <div style="font-family:var(--font-mono); font-size:0.74rem; color:var(--green-rel); font-weight:700; text-transform:uppercase; margin-bottom:0.4rem;">
+            Fronteiras Abertas e Nichos Emergentes
+          </div>
+          <h3 style="font-size:1.02rem; margin-bottom:0.65rem;">Descoberta Científica, Voz e Ecossistema Externo</h3>
+          <ul style="list-style:none; display:grid; gap:0.55rem; font-size:0.84rem;">
+            <li><strong><code>TIP-06</code> (36 / 5,0%) &amp; <code>DOR-08</code> (0 / 0,0%):</strong> Mapeamento de palavras-chave e busca em repositórios oficiais (ex.: <code>MUR-0161</code>).</li>
+            <li><strong><code>MOD-VOZ</code> (23 / 3,2%) &amp; <code>CTX-LIVE</code> (1 / 0,1%):</strong> Interação conversacional em áudio e estudo falado (ex.: <code>MUR-0188</code>, <code>MUR-0025</code>).</li>
+            <li><strong><code>DOR-10</code> (53 / 7,4%):</strong> Conciliação explícita entre jornada CLT/estágio, saúde, família e faculdade (ex.: <code>MUR-0127</code>, <code>MUR-0270</code>, <code>MUR-0713</code>).</li>
+            <li><strong>Centralizadores Externos (14 / 2,0% com Uso de Notion):</strong> Combinação de planners digitais com Gemini para estimar esforço (ex.: <code>MUR-0545</code>).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fichario" class="chapter">
+    <div>
+      <div class="chapter-num" style="color:var(--text-main);">
+        <span>●</span> Visualização Hero C • Explorador Rastreável
+      </div>
+      <h2 class="chapter-title">O Fichário Vivo de Evidências</h2>
+      <p class="chapter-lead" style="max-width:75ch;">
+        Explore uma seleção curada e verificada de registros reais do mural (anonimizados e rastreáveis por <code>row_id</code>), cobrindo todas as 7 categorias originais, os códigos de dor, estratégia humana, função da IA, estatuto do relato (<code>META</code>) e sinalizações de corte por limite de caracteres do formulário.
+      </p>
+      <div class="chapter-glossary-box" style="max-width:78ch;" aria-label="Guia de siglas do Fichário Vivo">
+        <div class="chapter-glossary-title">📖 Como ler cada ficha abaixo</div>
+        <div class="glossary-dl" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));">
+          <div class="glossary-item"><code class="g-neu">MUR-XXXX</code> Identificador único do registro na planilha.</div>
+          <div class="glossary-item"><code class="g-dor">DOR</code> Obstáculo explícito relatado • <code class="g-tip">TIP</code> Estratégia humana • <code class="g-gem">GEM</code> Papel da IA.</div>
+          <div class="glossary-item"><code class="g-gem">Estatuto (META)</code> <code>META-01</code> (uso pessoal vivido) vs. <code>META-02</code> (recomendação).</div>
+          <div class="glossary-item"><code class="g-rel">Vínculo (REL)</code> Relação Prática–IA • <code class="g-gem">Contexto (CTX)</code> Ferramenta citada.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="viz-panel">
+      <div class="fichario-controls">
+        <input type="search" id="fichario-search" class="search-input" placeholder="Buscar por row_id (ex: MUR-0002), palavra-chave (flashcards, agenda, código)..." aria-label="Buscar registros no fichário">
+        <select id="fichario-cat" class="select-filter" aria-label="Filtrar por categoria">
+          <option value="ALL">Todas as 7 Categorias (713 na base)</option>
+          <option value="Organização da rotina">Organização da rotina (300 na base)</option>
+          <option value="Estudo">Estudo (183 na base)</option>
+          <option value="Tarefas e projetos">Tarefas e projetos (77 na base)</option>
+          <option value="Exames e provas">Exames e provas (65 na base)</option>
+          <option value="Vida universitária">Vida universitária (48 na base)</option>
+          <option value="Pesquisa">Pesquisa (25 na base)</option>
+          <option value="Leituras">Leituras (15 na base)</option>
+        </select>
+        <button type="button" class="btn-toggle" id="fichario-reset" style="border:1px solid var(--border-strong); background:var(--surface);">Limpar filtros</button>
+      </div>
+
+      <div class="pill-bar" id="fichario-pills" role="group" aria-label="Filtros rápidos por tema">
+        <button type="button" class="filter-pill active" data-pill="ALL" aria-pressed="true">Todos os casos curados</button>
+        <button type="button" class="filter-pill" data-pill="TIP-01" aria-pressed="false">Fatiar em Microtarefas (TIP-01)</button>
+        <button type="button" class="filter-pill" data-pill="TIP-03" aria-pressed="false">Estudo Ativo / Flashcards (TIP-03)</button>
+        <button type="button" class="filter-pill" data-pill="GEM-01" aria-pressed="false">Estruturador de Caos (GEM-01)</button>
+        <button type="button" class="filter-pill" data-pill="GEM-03" aria-pressed="false">Tutoria / Sparring (GEM-03)</button>
+        <button type="button" class="filter-pill" data-pill="CTX-NBLM" aria-pressed="false">NotebookLM (CTX-NBLM)</button>
+        <button type="button" class="filter-pill" data-pill="DOR-10" aria-pressed="false">Trabalho + Estudo (DOR-10)</button>
+        <button type="button" class="filter-pill" data-pill="TRUNC" aria-pressed="false">Com Sinalização de Corte (Truncados)</button>
+      </div>
+
+      <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-sec); margin-bottom:0.85rem;" id="fichario-count-bar" aria-live="polite"></div>
+
+      <div class="cards-grid" id="fichario-grid"></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- NOTA METODOLÓGICA E CRÉDITOS DE AUTORIA -->
+<footer id="metodologia" class="footer-method">
+  <div class="method-card">
+    <div class="eyebrow" style="background:#E8EAED; color:var(--text-main);">Transparência Científica &amp; Governança do Corpus</div>
+    <h2 style="font-family:var(--font-serif); font-size:1.55rem; margin-bottom:0.75rem;">Sobre os dados, a codificação e os limites interpretativos</h2>
+    <p style="font-size:0.93rem; max-width:85ch; color:var(--text-main);">
+      Este observatório analisa <strong>713 contribuições</strong> enviadas ao <a href="https://mural-embaixadores-br.web.app" target="_blank" rel="noopener noreferrer" style="color:#8AB4F8; text-decoration:underline;">Mural Oficial do programa Embaixadores Estudantis Google Brasil 2026 ↗</a>. Os textos passaram por auditoria estrutural e <strong>codificação qualitativa exploratória assistida por IA</strong>, preservando a rastreabilidade por identificador de registro (<code>row_id</code>) e anonimizando referências pessoais. Os resultados retratam <strong>padrões descritivos do que foi relatado no mural</strong> — não representam telemetria de uso real, comprovação de eficácia pedagógica, relação de causa e efeito nem amostra estatisticamente representativa de todos os estudantes.
+    </p>
+
+    <div class="method-grid">
+      <div>
+        <strong style="color:var(--text-main); display:block; margin-bottom:0.3rem;">1. Preservação Integral e Candidatos a Sobreposição</strong>
+        Nenhum registro foi removido: todas as 713 entradas permanecem no denominador estrutural. A auditoria da Camada Silver sinalizou <strong>81 registros como candidatos a sobreposição textual ou duplicidade exata/parcial</strong> (<code>has_any_duplicate_audit_flag</code>, não equivalendo a erros confirmados) e 2 registros de teste (<code>MUR-0598</code>, <code>MUR-0652</code>), mantidos para transparência de auditoria.
+      </div>
+      <div>
+        <strong style="color:var(--text-main); display:block; margin-bottom:0.3rem;">2. Limite de Caracteres e Truncamento</strong>
+        Os campos originais do formulário possuíam limites rígidos de <strong>400 caracteres em <code>Tip</code></strong> e <strong>350 caracteres em <code>Gemini</code></strong>. Alguns relatos sofreram corte abrupto na frase final (a contagem agregada exata permanece em reconciliação entre critérios estritos e ampliados de fronteira, não sendo exibida como KPI). Nenhum trecho cortado foi completado ou inferido.
+      </div>
+      <div>
+        <strong style="color:var(--text-main); display:block; margin-bottom:0.3rem;">3. Leitura Indicativa (Não Definitiva)</strong>
+        As contagens de <code>DOR</code>, <code>TIP</code>, <code>GEM</code>, <code>META</code>, <code>MOD</code>, <code>CTX</code> e <code>REL</code> refletem a aba reconciliada <code>contagens_observadas</code> (v3). Como um relato pode acionar mais de uma dor, prática ou função da IA, categorias multirrótulo podem somar mais de 100% sobre N = 713.
+      </div>
+    </div>
+
+    <!-- CRÉDITOS DO AUTOR E REDES -->
+    <div class="author-credit-footer" aria-label="Créditos de autoria e redes sociais">
+      <div class="author-info-block">
+        <div><strong>Eric Pimentel</strong> • Embaixador Estudantil Google Brasil 2026</div>
+        <div style="margin-top:0.2rem; font-size:0.8rem; color:var(--text-sec);">
+          Concepção analítica, auditoria qualitativa e desenvolvimento de data storytelling • <strong>Belém — 2026</strong>
+        </div>
+        <div style="margin-top:0.25rem; font-size:0.74rem; color:var(--text-muted);">
+          Nota: Projeto autoral desenvolvido no âmbito da participação como Embaixador Estudantil Google Brasil 2026; não constitui publicação institucional oficial do Google.
+        </div>
+      </div>
+
+      <div class="social-links" role="group" aria-label="Fonte oficial dos dados e perfis profissionais de Eric Pimentel">
+        <a href="https://mural-embaixadores-br.web.app" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Acessar o Mural Oficial dos Embaixadores Estudantis Google Brasil 2026 (abre em nova aba)">
+          <span>🌐 Mural Oficial</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+        <a href="https://www.linkedin.com/in/ericpimentel-dados/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Perfil de Eric Pimentel no LinkedIn (abre em nova aba)">
+          <span>LinkedIn</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+        <a href="https://www.instagram.com/eric.n.pimentel/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Perfil de Eric Pimentel no Instagram (abre em nova aba)">
+          <span>Instagram</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+        <a href="https://github.com/enps2015" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Perfil de Eric Pimentel no GitHub (abre em nova aba)">
+          <span>GitHub</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ============================================================================
+// DADOS VERIFICADOS DA FONTE (analise_qualitativa_contextual_713_v3_reconciliada.xlsx)
+// ============================================================================
+
+const CATEGORIES_DATA = [
+  { name: "Organização da rotina", count: 300, pct: 42.08, color: "#4285F4" },
+  { name: "Estudo", count: 183, pct: 25.67, color: "#34A853" },
+  { name: "Tarefas e projetos", count: 77, pct: 10.80, color: "#D99000" },
+  { name: "Exames e provas", count: 65, pct: 9.12, color: "#EA4335" },
+  { name: "Vida universitária", count: 48, pct: 6.73, color: "#5F6368" },
+  { name: "Pesquisa", count: 25, pct: 3.51, color: "#1A73E8" },
+  { name: "Leituras", count: 15, pct: 2.10, color: "#188038" }
+];
+
+const DOR_COUNTS = [
+  { code: "DOR-00", name: "Sem dor explícita (dica direta)", count: 242, pct: 33.94, neutral: true, desc: "O relato compartilha um método ou prompt diretamente, sem narrar um sofrimento prévio." },
+  { code: "DOR-05", name: "Retenção, revisão e memória", count: 197, pct: 27.63, neutral: false, desc: "Dificuldade em fixar conteúdos extensos, revisar para provas ou praticar recuperação ativa." },
+  { code: "DOR-04", name: "Distração, foco e troca de contexto", count: 123, pct: 17.25, neutral: false, desc: "Interrupções constantes por notificações, celular por perto ou perda de ritmo entre aulas." },
+  { code: "DOR-02", name: "Escassez de tempo e prazos", count: 108, pct: 15.15, neutral: false, desc: "Conflito de datas, rotina curta e sensação de que não há horas suficientes na semana." },
+  { code: "DOR-06", name: "Compreensão de conteúdo difícil", count: 85, pct: 11.92, neutral: false, desc: "Textos abstratos, jargões técnicos densos ou matérias em que o estudante trava." },
+  { code: "DOR-03", name: "Procrastinação e paralisia de início", count: 78, pct: 10.94, neutral: false, desc: "Travamento diante de entregas grandes (TCC, projetos longos, editais extensos)." },
+  { code: "DOR-01", name: "Sobrecarga e acúmulo de demandas", count: 66, pct: 9.26, neutral: false, desc: "Excesso simultâneo de tarefas acadêmicas e pessoais gerando cansaço mental." },
+  { code: "DOR-07", name: "Volume pesado de leituras/PDFs", count: 65, pct: 9.12, neutral: false, desc: "Pilha extensa de artigos, capítulos e slides acumulados antes das avaliações." },
+  { code: "DOR-10", name: "Conciliar trabalho, estudo e saúde", count: 53, pct: 7.43, neutral: false, desc: "Dupla ou tripla jornada (expediente CLT/estágio, cuidados familiares e faculdade)." },
+  { code: "DOR-11", name: "Informação dispersa e desorganização", count: 34, pct: 4.77, neutral: false, desc: "Materiais espalhados em múltiplos canais, abas, cadernos e aplicativos sem centralização." },
+  { code: "DOR-09", name: "Acompanhar pendências e entregas", count: 5, pct: 0.70, neutral: false, desc: "Risco de esquecer prazos específicos ou perder visibilidade do progresso diário." }
+];
+
+// Contagens exatas cruzadas por Categoria x TIP e GEM (calculadas de codificacao_semantica)
+const MATRIX_COLUMNS = [
+  { code: "TIP-02", label: "Planej. Temporal", type: "TIP", total: 403 },
+  { code: "TIP-01", label: "Microtarefas", type: "TIP", total: 190 },
+  { code: "TIP-04", label: "Curadoria/Notas", type: "TIP", total: 147 },
+  { code: "TIP-05", label: "Proteção de Foco", type: "TIP", total: 132 },
+  { code: "TIP-03", label: "Estudo Ativo", type: "TIP", total: 126 },
+  { code: "TIP-06", label: "Busca de Fontes", type: "TIP", total: 36 },
+  { code: "GEM-01", label: "Estruturar/Planos", type: "GEM", total: 404 },
+  { code: "GEM-02", label: "Artefatos Estudo", type: "GEM", total: 138 },
+  { code: "GEM-03", label: "Tutoria/Diálogo", type: "GEM", total: 96 },
+  { code: "GEM-04", label: "Ação Integrada", type: "GEM", total: 3 }
+];
+
+const MATRIX_ROWS = [
+  {
+    cat: "Organização da rotina", n: 300,
+    counts: { "TIP-02": 225, "TIP-01": 89, "TIP-04": 54, "TIP-05": 68, "TIP-03": 28, "TIP-06": 12, "GEM-01": 213, "GEM-02": 32, "GEM-03": 19, "GEM-04": 2 }
+  },
+  {
+    cat: "Estudo", n: 183,
+    counts: { "TIP-02": 66, "TIP-01": 40, "TIP-04": 33, "TIP-05": 35, "TIP-03": 54, "TIP-06": 6, "GEM-01": 73, "GEM-02": 58, "GEM-03": 39, "GEM-04": 0 }
+  },
+  {
+    cat: "Tarefas e projetos", n: 77,
+    counts: { "TIP-02": 45, "TIP-01": 31, "TIP-04": 19, "TIP-05": 11, "TIP-03": 6, "TIP-06": 4, "GEM-01": 50, "GEM-02": 10, "GEM-03": 9, "GEM-04": 1 }
+  },  {
+    cat: "Exames e provas", n: 65,
+    counts: { "TIP-02": 32, "TIP-01": 12, "TIP-04": 10, "TIP-05": 5, "TIP-03": 29, "TIP-06": 4, "GEM-01": 29, "GEM-02": 25, "GEM-03": 14, "GEM-04": 0 }
+  },
+  {
+    cat: "Vida universitária", n: 48,
+    counts: { "TIP-02": 23, "TIP-01": 11, "TIP-04": 13, "TIP-05": 9, "TIP-03": 3, "TIP-06": 3, "GEM-01": 26, "GEM-02": 6, "GEM-03": 5, "GEM-04": 0 }
+  },
+  {
+    cat: "Pesquisa", n: 25,
+    counts: { "TIP-02": 8, "TIP-01": 5, "TIP-04": 10, "TIP-05": 3, "TIP-03": 2, "TIP-06": 7, "GEM-01": 9, "GEM-02": 4, "GEM-03": 7, "GEM-04": 0 }
+  },
+  {
+    cat: "Leituras", n: 15,
+    counts: { "TIP-02": 4, "TIP-01": 2, "TIP-04": 8, "TIP-05": 1, "TIP-03": 4, "TIP-06": 0, "GEM-01": 4, "GEM-02": 3, "GEM-03": 3, "GEM-04": 0 }
+  }
+];
+
+// Estações Funcionais com IDs 100% presentes em EVIDENCE_RECORDS
+const GEM_STATIONS = [
+  {
+    code: "GEM-01",
+    title: "Estruturador de Dados Brutos e Planos",
+    count: "404 registros (56,7%)",
+    shortDesc: "Recebe listas caóticas de pendências, planos de ensino ou escopos longos e devolve cronogramas, matrizes de prioridade e checklists.",
+    detail: "Na codificação exploratória, GEM-01 é o coração funcional dos relatos: o estudante não pede que a IA estude por ele, mas que organize o ponto de partida para eliminar a paralisia diante do volume de tarefas.",
+    examples: ["MUR-0194", "MUR-0127", "MUR-0495", "MUR-0713"]
+  },
+  {
+    code: "GEM-02",
+    title: "Fábrica de Artefatos de Estudo",
+    count: "138 registros (19,4%)",
+    shortDesc: "Converte anotações de aula, PDFs e slides em flashcards, quizzes de fixação ativa, resumos executivos e simulados.",
+    detail: "Forte presença em Estudo (31,7% da categoria) e Exames e provas (38,5%). Frequentemente aparece combinada ao NotebookLM ou ao upload de materiais próprios.",
+    examples: ["MUR-0002", "MUR-0164", "MUR-0270", "MUR-0708"]
+  },
+  {
+    code: "GEM-03",
+    title: "Tutoria Dialógica e Debate Crítico",
+    count: "96 registros (13,5%)",
+    shortDesc: "Atua como interlocutor socrático, explicando conceitos difíceis sob outra ótica, debatendo premissas de artigos ou simulando arguições.",
+    detail: "Aplicada sob critério rigoroso: a simples palavra 'mentor' não bastou sem evidência de explicação orientada ou diálogo. Ganha densidade proporcional em Pesquisa (28,0%) e Exames/Estudo.",
+    examples: ["MUR-0293", "MUR-0357", "MUR-0188", "MUR-0009"]
+  },
+  {
+    code: "GEM-04",
+    title: "Ação Direta e Integração Ecossistêmica",
+    count: "3 registros estritos (0,4%)",
+    shortDesc: "Comandos que descrevem explicitamente a inserção, alteração ou sincronização direta de eventos em ferramentas como Google Agenda/Tarefas.",
+    detail: "Por que apenas 3 casos? O codebook v0.2.1 determinou que citar 'agenda', 'prazos' ou 'Google' não comprova integração automática; exigiu-se relato explícito da ação de inserir/alterar eventos via comando.",
+    examples: ["MUR-0001", "MUR-0377"]
+  },
+  {
+    code: "GEM-OUT",
+    title: "Menções Genéricas ou Fora das 4 Classes",
+    count: "183 registros (25,7%)",
+    shortDesc: "Relatos que afirmam que o Gemini 'ajuda nos estudos' ou mencionam usos amplos sem detalhar uma das 4 funções operacionais acima.",
+    detail: "Transparência metodológica: manter GEM-OUT visível evita forçar encaixes artificiais quando o texto submetido ao mural é breve ou puramente opinativo.",
+    examples: ["MUR-0691", "MUR-0231"]
+  }
+];
+
+// Coocorrências por pares independentes (DOR ↔ TIP e TIP ↔ GEM) verificadas na base
+const ALLUVIAL_DOR_TIP = [
+  { s: "DOR-05", t: "TIP-02", v: 118 },
+  { s: "DOR-05", t: "TIP-03", v: 76 },
+  { s: "DOR-05", t: "TIP-04", v: 46 },
+  { s: "DOR-05", t: "TIP-01", v: 42 },
+  { s: "DOR-05", t: "TIP-05", v: 26 },
+  { s: "DOR-04", t: "TIP-05", v: 83 },
+  { s: "DOR-04", t: "TIP-02", v: 70 },
+  { s: "DOR-04", t: "TIP-01", v: 42 },
+  { s: "DOR-04", t: "TIP-03", v: 20 },
+  { s: "DOR-02", t: "TIP-02", v: 74 },
+  { s: "DOR-02", t: "TIP-01", v: 36 },
+  { s: "DOR-02", t: "TIP-04", v: 26 },
+  { s: "DOR-06", t: "TIP-02", v: 44 },
+  { s: "DOR-06", t: "TIP-03", v: 26 },
+  { s: "DOR-06", t: "TIP-04", v: 19 },
+  { s: "DOR-06", t: "TIP-01", v: 17 },
+  { s: "DOR-03", t: "TIP-01", v: 41 },
+  { s: "DOR-03", t: "TIP-02", v: 53 },
+  { s: "DOR-01", t: "TIP-02", v: 45 },
+  { s: "DOR-01", t: "TIP-01", v: 31 },
+  { s: "DOR-07", t: "TIP-02", v: 37 },
+  { s: "DOR-07", t: "TIP-04", v: 18 },
+  { s: "DOR-07", t: "TIP-03", v: 15 },
+  { s: "DOR-10", t: "TIP-02", v: 37 },
+  { s: "DOR-10", t: "TIP-01", v: 22 },
+  { s: "DOR-10", t: "TIP-04", v: 13 },
+  { s: "DOR-00", t: "TIP-02", v: 112 },
+  { s: "DOR-00", t: "TIP-04", v: 48 },
+  { s: "DOR-00", t: "TIP-01", v: 41 },
+  { s: "DOR-00", t: "TIP-05", v: 31 },
+  { s: "DOR-00", t: "TIP-03", v: 23 }
+];
+
+const ALLUVIAL_TIP_GEM = [
+  { s: "TIP-02", t: "GEM-01", v: 277 },
+  { s: "TIP-02", t: "GEM-02", v: 64 },
+  { s: "TIP-02", t: "GEM-03", v: 37 },
+  { s: "TIP-02", t: "GEM-OUT", v: 78 },
+  { s: "TIP-01", t: "GEM-01", v: 135 },
+  { s: "TIP-01", t: "GEM-02", v: 25 },
+  { s: "TIP-01", t: "GEM-03", v: 21 },
+  { s: "TIP-01", t: "GEM-OUT", v: 34 },
+  { s: "TIP-04", t: "GEM-01", v: 83 },
+  { s: "TIP-04", t: "GEM-02", v: 39 },
+  { s: "TIP-04", t: "GEM-03", v: 20 },
+  { s: "TIP-04", t: "GEM-OUT", v: 31 },
+  { s: "TIP-05", t: "GEM-01", v: 78 },
+  { s: "TIP-05", t: "GEM-02", v: 17 },
+  { s: "TIP-05", t: "GEM-03", v: 15 },
+  { s: "TIP-05", t: "GEM-OUT", v: 34 },
+  { s: "TIP-03", t: "GEM-01", v: 57 },
+  { s: "TIP-03", t: "GEM-02", v: 53 },
+  { s: "TIP-03", t: "GEM-03", v: 26 },
+  { s: "TIP-03", t: "GEM-OUT", v: 20 }
+];
+
+// Blueprints Step-by-Step (Chapter 5)
+const BLUEPRINTS = [
+  {
+    id: "MUR-0001",
+    cat: "Organização da rotina",
+    title: "Triagem de Agenda e Checagem de Conflitos",
+    meta: "META-02 (Recomendação com prompt-modelo)",
+    rel: "REL-INTEG / GEM-04",
+    trunc: false,
+    step1: "Centralizar todos os novos compromissos em uma conversa fixa dedicada à rotina, evitando espalhar lembretes soltos.",
+    step2: "Enviar prompt estruturado pedindo para criar o evento no Google Calendar com data, hora de início/fim, descrição e checar se há conflito de agenda.",
+    step3: "Receber confirmação do agendamento e alerta imediato caso o novo compromisso sobreponha outra atividade."
+  },
+  {
+    id: "MUR-0002",
+    cat: "Estudo",
+    title: "Ciclo Semanal Pós-Aula com Gemini + NotebookLM",
+    meta: "META-01 (Uso pessoal relatado)",
+    rel: "REL-DELEG / GEM-02 & GEM-03",
+    trunc: false,
+    step1: "No fim de semana, mapear aulas, provas, leituras e prazos da semana seguinte; criar o material de estudo no mesmo dia em que a matéria é dada.",
+    step2: "Pedir ao Gemini resumos, explicações sob outra ótica e listas de exercícios; subir os slides dos professores no NotebookLM.",
+    step3: "Gerar guias de estudo estritamente ancorados no material da disciplina para revisar antes das avaliações."
+  },
+  {
+    id: "MUR-0293",
+    cat: "Pesquisa",
+    title: "Escafandro Metodológico vs. Leitura Rasa",
+    meta: "META-02 (Instrução de leitura crítica)",
+    rel: "REL-TUT / GEM-03",
+    trunc: false,
+    step1: "Recusar resumos automáticos passivos ao lidar com artigos científicos densos; adotar leitura ativa investigativa.",
+    step2: "Acionar o Gemini como 'sonar' estruturado em 5 eixos: (1) tese central, (2) metodologia, (3) diálogo com autores, (4) pontos cegos e (5) conexões com a própria pesquisa.",
+    step3: "Produzir fichamento crítico autoral, usando a IA para tensionar argumentos em vez de substituir a leitura."
+  },
+  {
+    id: "MUR-0495",
+    cat: "Tarefas e projetos",
+    title: "Roteiro de Microetapas contra Paralisia de TCC",
+    meta: "META-01 (Uso pessoal relatado)",
+    rel: "REL-COMP / TIP-01 & GEM-01",
+    trunc: false,
+    step1: "Não colocar o objetivo final gigantesco (TCC ou projeto semestral) direto na agenda; definir janelas curtas de execução.",
+    step2: "Fornecer as diretrizes do trabalho e a data final ao Gemini pedindo um roteiro de microetapas de 30 a 45 minutos distribuídas em 3 semanas.",
+    step3: "Seguir um checklist de entregas concretas por sessão curta, reduzindo a procrastinação por excesso de escopo."
+  },
+  {
+    id: "MUR-0709",
+    cat: "Vida universitária",
+    title: "Mitigação de Context Switch entre Disciplinas",
+    meta: "META-02 (Estratégia operacional recomendada)",
+    rel: "REL-COMP / GEM-02",
+    trunc: false,
+    step1: "Identificar a perda de foco ao alternar rapidamente entre matérias exatas e humanas no mesmo dia letivo.",
+    step2: "Logo após cada aula, enviar as anotações brutas ao Gemini solicitando um 'Resumo Executivo' enxuto: 3 conceitos-chave e 1 pergunta de revisão.",
+    step3: "Anexar o resumo ao evento daquela matéria no Google Agenda para reativar o cérebro em 2 minutos antes da aula seguinte."
+  },
+  {
+    id: "MUR-0540",
+    cat: "Estudo",
+    title: "Gerente de Projetos para Rotina Trabalho + Faculdade",
+    meta: "META-01 (Uso pessoal relatado)",
+    rel: "REL-COMP / TIP-01 & GEM-01",
+    trunc: true,
+    step1: "Com aulas de manhã e expediente das 13h30 às 21h50, abandonar a expectativa de 'tardes livres' e fatiar entregas técnicas (MongoDB/React) em blocos de 20–30 min.",
+    step2: "Enviar o escopo completo do projeto ao Gemini declarando a restrição real: apenas blocos de 30 minutos livres na rotina.",
+    step3: "Receber o passo a passo sequencial ajustado às janelas curtas [Relato possui flag de truncamento no fecho de ambos os campos]."
+  }
+];
+
+// Registros curados verificados para o Fichário Vivo (Hero C) e gavetas de exemplos
+const EVIDENCE_RECORDS = [
+  {
+    id: "MUR-0001", cat: "Organização da rotina",
+    dor: ["DOR-04"], tip: ["TIP-02"], gem: ["GEM-04"], meta: "META-02", ctx: "CTX-WS", rel: "REL-INTEG", trunc: false,
+    tipText: "Centralizar todos os eventos novos em um chat único integrado ao calendário para evitar esquecimentos na rotina.",
+    gemText: "Comando para criar evento no Google Calendar com título, início, fim e descrição, verificando conflitos existentes na agenda."
+  },
+  {
+    id: "MUR-0002", cat: "Estudo",
+    dor: ["DOR-02", "DOR-05"], tip: ["TIP-02"], gem: ["GEM-02", "GEM-03"], meta: "META-01", ctx: "CTX-NBLM", rel: "REL-DELEG", trunc: false,
+    tipText: "Organizar no fim de semana aulas, provas, trabalhos e leituras da semana seguinte; criar o material de estudo no mesmo dia da aula.",
+    gemText: "Uso do Gemini para gerar resumos, explicações sob outra ótica e listas de exercícios; NotebookLM com slides dos professores para guias de estudo."
+  },
+  {
+    id: "MUR-0005", cat: "Organização da rotina",
+    dor: ["DOR-05", "DOR-09"], tip: ["TIP-01", "TIP-02", "TIP-03", "TIP-05"], gem: ["GEM-01"], meta: "META-02", ctx: "CTX-WS", rel: "REL-COMP", trunc: true,
+    tipText: "Planejar a semana no domingo definindo 3 prioridades por dia, usando blocos de foco (Pomodoro) e revisão rápida de 15 min no fim do dia.",
+    gemText: "Transformar matérias da semana em cronograma realista e gerar perguntas rápidas ou flashcards dos temas estudados [Corte no limite de 350 chars]."
+  },
+  {
+    id: "MUR-0009", cat: "Vida universitária",
+    dor: ["DOR-06"], tip: ["TIP-04"], gem: ["GEM-03"], meta: "META-01", ctx: "CTX-GEM", rel: "REL-TUT", trunc: false,
+    tipText: "Manter atenção plena em aula e anotar todas as conexões percebidas com outros conteúdos da graduação.",
+    gemText: "Consultar o Gemini para esclarecer conceitos citados pelos professores e validar se as conexões interdisciplinares anotadas fazem sentido."
+  },
+  {
+    id: "MUR-0010", cat: "Exames e provas",
+    dor: ["DOR-05", "DOR-06"], tip: ["TIP-04"], gem: ["GEM-01"], meta: "META-01", ctx: "CTX-GEM", rel: "REL-COMP", trunc: false,
+    tipText: "Sintetizar os pontos mais difíceis da matéria em post-its visuais pregados no quarto para revisão constante antes da prova.",
+    gemText: "Pedir ajuda ao Gemini para identificar os pontos essenciais da matéria e onde focar mais energia a partir do material da aula."
+  },
+  {
+    id: "MUR-0027", cat: "Pesquisa",
+    dor: ["DOR-03", "DOR-07"], tip: ["TIP-02", "TIP-04"], gem: ["GEM-02"], meta: "META-01", ctx: "CTX-GEM", rel: "REL-COMP", trunc: true,
+    tipText: "Criar cronograma semanal dividindo artigos do mestrado por temas e fichar objetivos, metodologia e resultados principais.",
+    gemText: "Usar o Gemini como assistente para resumir artigos densos, extrair conceitos-chave e comparar pontos de vista entre autores [Corte em 350 chars]."
+  },
+  {
+    id: "MUR-0040", cat: "Tarefas e projetos",
+    dor: ["DOR-01", "DOR-09", "DOR-11"], tip: ["TIP-01", "TIP-02", "TIP-04"], gem: ["GEM-01"], meta: "META-01", ctx: "CTX-GEM", rel: "REL-COMP", trunc: true,
+    tipText: "Despejar todas as tarefas acumuladas em lista única, classificar por prazo/esforço e quebrar projetos grandes em passos menores.",
+    gemText: "Enviar a lista desorganizada de demandas acadêmicas ao Gemini pedindo priorização por entrega e dependências [Corte aos 349 chars]."
+  },
+  {
+    id: "MUR-0098", cat: "Leituras",
+    dor: ["DOR-07"], tip: ["TIP-04"], gem: ["GEM-02"], meta: "META-01", ctx: "CTX-NBLM", rel: "REL-DELEG", trunc: false,
+    tipText: "Realizar leitura ativa grifando partes essenciais e puxando setas com anotações próprias nas margens.",
+    gemText: "Subir os textos no Gemini/Notebook para gerar resumos estruturados de revisão posterior sem precisar reler a obra inteira."
+  },
+  {
+    id: "MUR-0127", cat: "Vida universitária",
+    dor: ["DOR-02", "DOR-10"], tip: ["TIP-02"], gem: ["GEM-01"], meta: "META-02", ctx: "CTX-GEM", rel: "REL-COMP", trunc: false,
+    tipText: "Diante da dificuldade de conciliar faculdade, trabalho e cuidados de saúde, recorrer a um planejamento estruturado de prioridades.",
+    gemText: "Listar provas, leituras, trabalhos e também consultas médicas com datas para que o Gemini organize e delimite as prioridades reais."
+  },
+  {
+    id: "MUR-0161", cat: "Pesquisa",
+    dor: ["DOR-00"], tip: ["TIP-06"], gem: ["GEM-01"], meta: "META-02", ctx: "CTX-GEM", rel: "REL-COMP", trunc: false,
+    tipText: "Organizar previamente palavras-chave estratégicas antes de iniciar a busca por artigos e ir direto a repositórios oficiais.",
+    gemText: "Solicitar ao modelo a estruturação de listas de busca de artigos cruzando repositórios acadêmicos e palavras-chave delimitadas."
+  },
+  {
+    id: "MUR-0164", cat: "Estudo",
+    dor: ["DOR-02", "DOR-05"], tip: ["TIP-02", "TIP-03", "TIP-05"], gem: ["GEM-02"], meta: "META-02", ctx: "CTX-NBLM", rel: "REL-DELEG", trunc: false,
+    tipText: "Não deixar matéria acumular: organizar por prioridade, estudar um pouco por dia fazendo muitas questões, revisar e respeitar o descanso.",
+    gemText: "Combinar IA e NotebookLM para construir guias de estudo, flashcards e mapas lógicos que organizam editais e matérias complexas."
+  },
+  {
+    id: "MUR-0188", cat: "Leituras",
+    dor: ["DOR-04", "DOR-07"], tip: ["TIP-03", "TIP-04", "TIP-05"], gem: ["GEM-03"], meta: "META-02", ctx: "CTX-LIVE", rel: "REL-TUT", trunc: false,
+    tipText: "Para leituras acadêmicas densas, combinar flashcards, estudo guiado, método Cornell de anotações e pausas regulares.",
+    gemText: "Interagir por voz com o Gemini Live em ambiente tranquilo para debater o conteúdo lido, mantendo intervalos Pomodoro de descanso."
+  },
+  {
+    id: "MUR-0194", cat: "Organização da rotina",
+    dor: ["DOR-04", "DOR-11"], tip: ["TIP-02"], gem: ["GEM-01", "GEM-02"], meta: "META-01", ctx: "CTX-GEM", rel: "REL-COMP", trunc: false,
+    tipText: "Cruzar o plano de aula com a agenda real em uma matriz semanal, separando urgências ('apagar fogo') do estudo de longo prazo.",
+    gemText: "Analisar plano de ensino e grade horária juntos para montar cronograma reverso até a prova, destacar capítulos de maior peso e gerar mini-quizzes."
+  },
+  {
+    id: "MUR-0221", cat: "Exames e provas",
+    dor: ["DOR-07"], tip: ["TIP-04"], gem: ["GEM-02"], meta: "META-02", ctx: "CTX-NBLM", rel: "REL-DELEG", trunc: false,
+    tipText: "Usar o NotebookLM como 'fonte da verdade' central da disciplina, reunindo ali todos os materiais confiáveis da matéria.",
+    gemText: "A ferramenta organiza e sintetiza o conhecimento das fontes enviadas para acelerar a revisão pré-prova."
+  },
+  {
+    id: "MUR-0231", cat: "Tarefas e projetos",
+    dor: ["DOR-00"], tip: ["TIP-02"], gem: ["GEM-01", "GEM-OUT"], meta: "META-02", ctx: "CTX-GEM", rel: "REL-COMP", trunc: false,
+    tipText: "Anotar as pendências do dia em bloco de notas e dar check ('ok') ao final da jornada para consolidar o hábito de rotina.",
+    gemText: "Apoiar na organização de tarefas, criação de lembretes, planejamento da rotina e acompanhamento de progresso."
+  },
+  {
+    id: "MUR-0270", cat: "Vida universitária",
+    dor: ["DOR-02", "DOR-10"], tip: ["TIP-04"], gem: ["GEM-02"], meta: "META-01", ctx: "CTX-WS", rel: "REL-DELEG", trunc: false,
+    tipText: "Para conciliar trabalho CLT e faculdade na volta para casa, reunir todos os conteúdos das aulas em pastas separadas no Google Drive.",
+    gemText: "Sincronizar os documentos do Drive com os cadernos de IA para gerar resumos e simulados rápidos de revisão."
+  },
+  {
+    id: "MUR-0293", cat: "Pesquisa",
+    dor: ["DOR-06", "DOR-07"], tip: ["TIP-04"], gem: ["GEM-03"], meta: "META-02", ctx: "CTX-GEM", rel: "REL-TUT", trunc: false,
+    tipText: "Substituir o 'resumo preguiçoso' pelo método do Escafandro: leitura crítica que interroga tese, método e lacunas do artigo.",
+    gemText: "Usar o Gemini como sonar investigativo em 5 perguntas críticas para mapear pontos cegos e conexões teóricas sem perder o rigor."
+  },
+  {
+    id: "MUR-0335", cat: "Estudo",
+    dor: ["DOR-02", "DOR-04"], tip: ["TIP-02", "TIP-05"], gem: ["GEM-02"], meta: "META-01", ctx: "CTX-GEM", rel: "REL-COMP", trunc: false,
+    tipText: "Reduzir tempo de tela recreativo no celular e aproveitar janelas de deslocamento no transporte público para revisar.",
+    gemText: "Acionar o Gemini pelo celular durante o trajeto no ônibus para revisar tópicos de provas da faculdade e concursos."
+  },
+  {
+    id: "MUR-0357", cat: "Leituras",
+    dor: ["DOR-06", "DOR-07"], tip: ["TIP-02", "TIP-04"], gem: ["GEM-03"], meta: "META-02", ctx: "CTX-GEM", rel: "REL-TUT", trunc: false,
+    tipText: "Reunir antecipadamente os textos mais densos e obrigatórios da disciplina em uma pasta dedicada antes do início das aulas.",
+    gemText: "Configurar o Gemini com persona de tutor acadêmico ('Aja como tutor da matéria X') para destrinchar o texto e criar rota de leitura."
+  },
+  {
+    id: "MUR-0377", cat: "Organização da rotina",
+    dor: ["DOR-04"], tip: ["TIP-05"], gem: ["GEM-04"], meta: "META-01", ctx: "CTX-WS", rel: "REL-INTEG", trunc: false,
+    tipText: "Deixar o aparelho celular fisicamente distante e no modo silencioso durante os blocos dedicados ao estudo e foco.",
+    gemText: "Integrar o Google Agenda ao Gemini para planejar a rotina diária e adicionar ou alterar compromissos por comandos diretos."
+  },
+  {
+    id: "MUR-0382", cat: "Tarefas e projetos",
+    dor: ["DOR-01", "DOR-03"], tip: ["TIP-01"], gem: ["GEM-01"], meta: "META-02", ctx: "CTX-GEM", rel: "REL-COMP", trunc: false,
+    tipText: "Fugir de listas de tarefas intermináveis: fatiar entregas gigantescas em microações que cabem no dia sem gerar ansiedade.",
+    gemText: "Usar o Gemini como copiloto de decomposição para quebrar projetos complexos em passos imediatos e destravar o início."
+  },
+  {
+    id: "MUR-0392", cat: "Exames e provas",
+    dor: ["DOR-05"], tip: ["TIP-03", "TIP-04"], gem: ["GEM-02"], meta: "META-01", ctx: "CTX-GEM", rel: "REL-DELEG", trunc: false,
+    tipText: "Treinar com simulados alinhados ao estilo da banca/edital e construir mapas mentais visuais para conectar os tópicos.",
+    gemText: "Solicitar ao Gemini questões inéditas baseadas em provas anteriores e estruturas de mapas conceituais para revisão."
+  },
+  {
+    id: "MUR-0495", cat: "Tarefas e projetos",
+    dor: ["DOR-03"], tip: ["TIP-01", "TIP-02"], gem: ["GEM-01"], meta: "META-01", ctx: "CTX-GEM", rel: "REL-COMP", trunc: false,
+    tipText: "Em entregas grandes (TCC ou relatórios semestrais), substituir a meta final na agenda por microtarefas de até 30 minutos.",
+    gemText: "Pedir ao Gemini para quebrar o trabalho acadêmico em roteiro de sessões de 30–45 min ao longo de 3 semanas com entregáveis claros."
+  },
+  {
+    id: "MUR-0540", cat: "Estudo",
+    dor: ["DOR-02", "DOR-10"], tip: ["TIP-01", "TIP-02"], gem: ["GEM-01"], meta: "META-01", ctx: "CTX-GEM", rel: "REL-COMP", trunc: true,
+    tipText: "Com aula de manhã e trabalho das 13h30 às 21h50, fatiar projetos de programação (MongoDB/React) em microtarefas de 20 a 30 min [Truncado].",
+    gemText: "Usar o Gemini como 'Gerente de Projetos' enviando o escopo e pedindo divisão estrita em blocos de 30 min [Truncado]."
+  },
+  {
+    id: "MUR-0545", cat: "Organização da rotina",
+    dor: ["DOR-11"], tip: ["TIP-02", "TIP-04"], gem: ["GEM-01"], meta: "META-04", ctx: "CTX-GEM", rel: "REL-COMP", trunc: true,
+    tipText: "Centralizar links, documentos, datas e nível de dificuldade da matéria em um planner digital no Notion para não perder tempo [Truncado].",
+    gemText: "O Gemini auxilia na organização das prioridades e na estimativa do tempo médio para cada tarefa segundo sua complexidade."
+  },
+  {
+    id: "MUR-0691", cat: "Leituras",
+    dor: ["DOR-00"], tip: ["TIP-04"], gem: ["GEM-OUT"], meta: "META-03", ctx: "CTX-WS", rel: "REL-INC", trunc: false,
+    tipText: "Registrar leituras e fichamentos acadêmicos em uma planilha estruturada para consulta futura.",
+    gemText: "Projeção hipotética: pedir futuramente para o Gemini montar ou automatizar a estrutura dessa planilha de controle."
+  },
+  {
+    id: "MUR-0708", cat: "Estudo",
+    dor: ["DOR-05"], tip: ["TIP-03"], gem: ["GEM-02"], meta: "META-01", ctx: "CTX-GEM", rel: "REL-DELEG", trunc: true,
+    tipText: "Praticar estudo ativo por meio de flashcards e questões curtas para testar a recuperação da memória constantemente.",
+    gemText: "Alimentar o Gemini com as anotações de aula para gerar rapidamente pares de pergunta e resposta de revisão [Truncado]."
+  },
+  {
+    id: "MUR-0709", cat: "Vida universitária",
+    dor: ["DOR-04"], tip: ["TIP-04", "TIP-05"], gem: ["GEM-02"], meta: "META-02", ctx: "CTX-WS", rel: "REL-COMP", trunc: false,
+    tipText: "Reduzir o custo mental da troca de contexto (Context Switch) entre aulas seguidas de áreas completamente diferentes.",
+    gemText: "Gerar no Gemini um resumo executivo de 3 conceitos-chave pós-aula e anexar ao evento no Google Agenda para leitura de 2 min."
+  },
+  {
+    id: "MUR-0711", cat: "Pesquisa",
+    dor: ["DOR-03"], tip: ["TIP-01"], gem: ["GEM-01"], meta: "META-01", ctx: "CTX-GEM", rel: "REL-COMP", trunc: true,
+    tipText: "Inverter o fluxo de escrita acadêmica inspirando-se em desenvolvimento orientado a testes (TDD) para validar premissas antes [Truncado].",
+    gemText: "Solicitar ao Gemini a decomposição do escopo de pesquisa em pequenos marcos de verificação incremental."
+  },
+  {
+    id: "MUR-0713", cat: "Organização da rotina",
+    dor: ["DOR-01", "DOR-03", "DOR-10"], tip: ["TIP-01", "TIP-02"], gem: ["GEM-01"], meta: "META-01", ctx: "CTX-WS", rel: "REL-COMP", trunc: true,
+    tipText: "Para dar conta de EAD, casa e filhos, aplicar 'descarrego mental' aliado a microtarefas fatiadas no Google Tarefas [Truncado].",
+    gemText: "Colar a lista caótica de pendências domésticas e acadêmicas no Gemini para ordenar prioridades e prazos [Truncado]."
+  }
+];
+
+function initChapter1() {
+  const barEl = document.getElementById("cat-proporcional-bar");
+  const legEl = document.getElementById("cat-proporcional-legend");
+
+  barEl.innerHTML = CATEGORIES_DATA.map(c => `
+    <button type="button" class="cat-seg" style="width:${c.pct}%; background:${c.color};"
+         title="${c.name}: ${c.count} registros (${c.pct.toFixed(1)}%) — Clique para filtrar no Fichário Vivo"
+         aria-label="Filtrar Fichário Vivo pela categoria ${c.name}: ${c.count} de 713 registros (${c.pct.toFixed(1)}%)"
+         onclick="filterFicharioByCategory('${c.name}')">
+      ${c.pct > 7 ? c.pct.toFixed(0) + '%' : ''}
+    </button>
+  `).join("");
+
+  legEl.innerHTML = CATEGORIES_DATA.map(c => `
+    <span class="cat-legend-item">
+      <span class="cat-swatch" style="background:${c.color}"></span>
+      <strong>${c.name}:</strong> ${c.count} (${c.pct.toFixed(1)}%)
+    </span>
+  `).join("");
+
+  renderDorSpectrum("ALL");
+
+  document.getElementById("btn-reset-dor").addEventListener("click", () => {
+    renderDorSpectrum("ALL");
+  });
+}
+
+function renderDorSpectrum(selectedCode) {
+  const listEl = document.getElementById("dor-spectrum-list");
+  const maxCount = 242;
+
+  listEl.innerHTML = DOR_COUNTS.map(d => {
+    const widthPct = Math.max(2, (d.count / maxCount) * 100);
+    const isSel = selectedCode === d.code;
+    const barColor = d.neutral ? "#9AA0A6" : "#EA4335";
+    return `
+      <button type="button" class="dor-row ${isSel ? 'selected' : ''}"
+           aria-pressed="${isSel}"
+           aria-label="Filtrar evidências por ${d.code} ${d.name}: ${d.count} de 713 registros (${d.pct.toFixed(1)}%)"
+           onclick="selectDorRow('${d.code}')">
+        <span class="dor-code ${d.neutral ? 'is-neutral' : 'is-dor'}">${d.code}</span>
+        <span class="dor-name">${d.name}</span>
+        <div class="dor-bar-wrap" aria-hidden="true">
+          <div class="dor-bar-fill" style="width:${widthPct}%; background:${barColor};"></div>
+        </div>
+        <span class="dor-stat"><strong>${d.count}</strong> (${d.pct.toFixed(1)}%)</span>
+      </button>
+    `;
+  }).join("");
+
+  updateDorDrawer(selectedCode);
+}
+
+function selectDorRow(code) {
+  renderDorSpectrum(code);
+}
+
+function updateDorDrawer(code) {
+  const titleEl = document.getElementById("dor-drawer-title");
+  const contentEl = document.getElementById("dor-drawer-content");
+
+  const metaObj = DOR_COUNTS.find(d => d.code === code);
+  const matches = code === "ALL"
+    ? EVIDENCE_RECORDS.slice(0, 3)
+    : EVIDENCE_RECORDS.filter(r => r.dor.includes(code)).slice(0, 3);
+
+  if (code === "ALL") {
+    titleEl.textContent = "AMOSTRA DE EVIDÊNCIAS RASTREÁVEIS (SELECIONE UMA BARRA ACIMA PARA FILTRAR POR DOR)";
+  } else {
+    titleEl.textContent = `${metaObj.code} — ${metaObj.name.toUpperCase()} (${metaObj.count} DE 713 REGISTROS NA BASE): ${metaObj.desc}`;
+  }
+
+  contentEl.innerHTML = matches.map(r => `
+    <div style="background:var(--surface); border:1px solid var(--border-subtle); border-left:3px solid ${code==='DOR-00'?'#9AA0A6':'var(--red-dor)'}; padding:0.75rem 0.95rem; border-radius:6px; font-size:0.83rem;">
+      <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.35rem; margin-bottom:0.25rem; font-family:var(--font-mono); font-size:0.73rem;">
+        <strong>${r.id} • ${r.cat}</strong>
+        <span>Dores: ${r.dor.join(", ")} | Prática: ${r.tip.join(", ")}</span>
+      </div>
+      <div><strong>Relato Humano (Tip):</strong> ${r.tipText}</div>
+      <div style="color:var(--text-sec); margin-top:0.2rem;"><strong>Apoio IA (Gemini):</strong> ${r.gemText}</div>
+    </div>
+  `).join("");
+}
+
+// ============================================================================
+// 2. HERO B — MATRIZ DE AFINIDADES POR CATEGORIA (CAP 2)
+// ============================================================================
+let currentMatrixMode = "pct";
+
+function initMatrix() {
+  renderMatrix(currentMatrixMode);
+
+  const btnPct = document.getElementById("btn-mat-pct");
+  const btnAbs = document.getElementById("btn-mat-abs");
+
+  btnPct.addEventListener("click", () => {
+    currentMatrixMode = "pct";
+    btnPct.classList.add("active");
+    btnPct.setAttribute("aria-pressed", "true");
+    btnAbs.classList.remove("active");
+    btnAbs.setAttribute("aria-pressed", "false");
+    renderMatrix("pct");
+  });
+
+  btnAbs.addEventListener("click", () => {
+    currentMatrixMode = "abs";
+    btnAbs.classList.add("active");
+    btnAbs.setAttribute("aria-pressed", "true");
+    btnPct.classList.remove("active");
+    btnPct.setAttribute("aria-pressed", "false");
+    renderMatrix("abs");
+  });
+}
+
+function renderMatrix(mode) {
+  const tableEl = document.getElementById("affinity-matrix");
+
+  const thead = `
+    <thead>
+      <tr>
+        <th class="cat-col" scope="col">Categoria Original (N)</th>
+        ${MATRIX_COLUMNS.map(c => `
+          <th scope="col" title="${c.label} (Total na base: ${c.total} de 713)">
+            <div style="color:${c.type==='TIP'?'var(--yellow-text)':'var(--blue-gem)'}; font-weight:700;">${c.code}</div>
+            <div style="font-weight:400; font-size:0.66rem;">${c.label}</div>
+          </th>
+        `).join("")}
+      </tr>
+    </thead>
+  `;
+
+  const tbody = MATRIX_ROWS.map(row => {
+    const cells = MATRIX_COLUMNS.map(col => {
+      const val = row.counts[col.code] || 0;
+      const pct = (val / row.n) * 100;
+      const displayVal = mode === "pct" ? `${pct.toFixed(0)}%` : val;
+
+      const alpha = mode === "pct"
+        ? Math.min(0.88, Math.max(0.10, pct / 80))
+        : Math.min(0.88, Math.max(0.10, val / 180));
+
+      const bg = val === 0
+        ? "#F1F3F4"
+        : (col.type === "TIP"
+            ? `rgba(251, 188, 4, ${alpha * 0.55})`
+            : `rgba(66, 133, 244, ${alpha * 0.45})`);
+
+      const textColor = val === 0 ? "#70757A" : "#202124";
+
+      return `
+        <td>
+          <button type="button" class="capsule-cell"
+                style="background:${bg}; color:${textColor};"
+                aria-label="${row.cat} com ${col.code} (${col.label}): ${val} de ${row.n} registros (${pct.toFixed(1)}%)"
+                onmouseenter="updateMatrixReadout('${row.cat}', '${col.code} (${col.label})', ${val}, ${row.n}, '${pct.toFixed(1)}')"
+                onfocus="updateMatrixReadout('${row.cat}', '${col.code} (${col.label})', ${val}, ${row.n}, '${pct.toFixed(1)}')"
+                onclick="updateMatrixReadout('${row.cat}', '${col.code} (${col.label})', ${val}, ${row.n}, '${pct.toFixed(1)}')">
+            ${displayVal}
+          </button>
+        </td>
+      `;
+    }).join("");
+
+    return `
+      <tr>
+        <th class="cat-col" scope="row">
+          <div>${row.cat}</div>
+          <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-sec); font-weight:400;">N = ${row.n}</div>
+        </th>
+        ${cells}
+      </tr>
+    `;
+  }).join("");
+
+  tableEl.innerHTML = thead + `<tbody>${tbody}</tbody>`;
+}
+
+function updateMatrixReadout(cat, colLabel, val, n, pct) {
+  const el = document.getElementById("matrix-hover-readout");
+  el.textContent = `${cat} × ${colLabel}: ${val} de ${n} registros (${pct}%)`;
+}
+
+// ============================================================================
+// 3. ESTAÇÕES FUNCIONAIS DO GEMINI (CAP 3)
+// ============================================================================
+function initChapter3() {
+  const gridEl = document.getElementById("gem-role-grid");
+  gridEl.innerHTML = GEM_STATIONS.map((s, idx) => `
+    <button type="button" class="role-card ${idx === 0 ? 'active' : ''}" data-gem-code="${s.code}"
+         aria-pressed="${idx === 0}"
+         onclick="selectGemStation('${s.code}')">
+      <div>
+        <div class="role-head">
+          <span class="role-code">${s.code}</span>
+          <span class="role-count">${s.count}</span>
+        </div>
+        <div class="role-title">${s.title}</div>
+        <div class="role-desc">${s.shortDesc}</div>
+      </div>
+      <div style="font-family:var(--font-mono); font-size:0.72rem; color:var(--blue-gem); font-weight:600;">
+        Exemplos: ${s.examples.join(", ")} →
+      </div>
+    </button>
+  `).join("");
+
+  selectGemStation("GEM-01");
+}
+
+function selectGemStation(code) {
+  document.querySelectorAll("#gem-role-grid .role-card").forEach(el => {
+    const isAct = el.getAttribute("data-gem-code") === code;
+    el.classList.toggle("active", isAct);
+    el.setAttribute("aria-pressed", String(isAct));
+  });
+
+  const st = GEM_STATIONS.find(s => s.code === code);
+  const detailEl = document.getElementById("gem-station-detail");
+  const sampleRecords = EVIDENCE_RECORDS.filter(r => st.examples.includes(r.id));
+
+  detailEl.innerHTML = `
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.65rem;">
+      <strong style="font-size:0.95rem; color:var(--text-main);">${st.code} — ${st.title} (${st.count})</strong>
+      <span style="font-family:var(--font-mono); font-size:0.73rem; color:var(--text-sec);">Codificação exploratória assistida por IA (N = 713)</span>
+    </div>
+    <p style="font-size:0.85rem; color:var(--text-sec); margin-bottom:0.9rem;">${st.detail}</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap:0.75rem;">
+      ${sampleRecords.map(r => `
+        <div style="background:var(--surface); border:1px solid var(--border-subtle); border-left:3px solid var(--blue-gem); padding:0.75rem; border-radius:6px; font-size:0.82rem;">
+          <div style="font-family:var(--font-mono); font-size:0.72rem; font-weight:700; margin-bottom:0.25rem;">
+            ${r.id} • ${r.cat} (${r.meta})
+          </div>
+          <div>${r.gemText}</div>
+        </div>
+      `).join("")}
+    </div>
+  `;
+}
+
+// ============================================================================
+// 4. HERO A — MAPA DE COOCORRÊNCIAS POR PARES (SVG ACESSÍVEL POR TECLADO)
+// ============================================================================
+let includeDor00InTear = false;
+let selectedTearNode = null;
+
+const DOR_META_MAP = {
+  "DOR-05": { label: "DOR-05 Retenção/Revisão", n: 197 },
+  "DOR-04": { label: "DOR-04 Foco/Distração", n: 123 },
+  "DOR-02": { label: "DOR-02 Falta de Tempo", n: 108 },
+  "DOR-06": { label: "DOR-06 Compreensão", n: 85 },
+  "DOR-03": { label: "DOR-03 Procrastinação", n: 78 },
+  "DOR-01": { label: "DOR-01 Sobrecarga", n: 66 },
+  "DOR-07": { label: "DOR-07 Vol. Leituras", n: 65 },
+  "DOR-10": { label: "DOR-10 Trab.+Estudo", n: 53 },
+  "DOR-00": { label: "DOR-00 Sem Dor Decl.", n: 242 }
+};
+
+const TIP_META_MAP = {
+  "TIP-02": { label: "TIP-02 Planej. Temporal", n: 403 },
+  "TIP-01": { label: "TIP-01 Microtarefas", n: 190 },
+  "TIP-04": { label: "TIP-04 Curadoria/Notas", n: 147 },
+  "TIP-05": { label: "TIP-05 Proteção Foco", n: 132 },
+  "TIP-03": { label: "TIP-03 Estudo Ativo", n: 126 }
+};
+
+const GEM_META_MAP = {
+  "GEM-01": { label: "GEM-01 Estruturar/Planos", n: 404 },
+  "GEM-OUT": { label: "GEM-OUT Uso Geral/Outros", n: 183 },
+  "GEM-02": { label: "GEM-02 Artefatos Estudo", n: 138 },
+  "GEM-03": { label: "GEM-03 Tutoria/Diálogo", n: 96 }
+};
+
+function initAlluvialTear() {
+  renderAlluvialDiagram();
+
+  const btnWithDor = document.getElementById("btn-tear-with-dor");
+  const btnAll = document.getElementById("btn-tear-all");
+
+  btnWithDor.addEventListener("click", () => {
+    includeDor00InTear = false;
+    selectedTearNode = null;
+    btnWithDor.classList.add("active");
+    btnWithDor.setAttribute("aria-pressed", "true");
+    btnAll.classList.remove("active");
+    btnAll.setAttribute("aria-pressed", "false");
+    renderAlluvialDiagram();
+  });
+
+  btnAll.addEventListener("click", () => {
+    includeDor00InTear = true;
+    selectedTearNode = null;
+    btnAll.classList.add("active");
+    btnAll.setAttribute("aria-pressed", "true");
+    btnWithDor.classList.remove("active");
+    btnWithDor.setAttribute("aria-pressed", "false");
+    renderAlluvialDiagram();
+  });
+
+  document.getElementById("btn-tear-reset").addEventListener("click", () => {
+    selectedTearNode = null;
+    renderAlluvialDiagram();
+  });
+}
+
+function renderAlluvialDiagram() {
+  const svg = document.getElementById("alluvial-svg");
+  const H = 500;
+  const topPad = 38;
+  const usableH = H - topPad - 24;
+
+  const dorKeys = ["DOR-05", "DOR-04", "DOR-02", "DOR-06", "DOR-03", "DOR-01", "DOR-07", "DOR-10"];
+  if (includeDor00InTear) dorKeys.unshift("DOR-00");
+  const tipKeys = ["TIP-02", "TIP-01", "TIP-04", "TIP-05", "TIP-03"];
+  const gemKeys = ["GEM-01", "GEM-02", "GEM-03", "GEM-OUT"];
+
+  const colX = { dor: 165, tip: 470, gem: 775 };
+  const nodeW = 18;
+
+  function layoutColumn(keys, metaMap, xPos, colorHex) {
+    const gap = 12;
+    const totalGap = gap * (keys.length - 1);
+    const sumVal = keys.reduce((acc, k) => acc + metaMap[k].n, 0);
+    let curY = topPad;
+    const nodes = {};
+    keys.forEach(k => {
+      const h = Math.max(22, ((usableH - totalGap) * (metaMap[k].n / sumVal)));
+      nodes[k] = {
+        code: k,
+        label: metaMap[k].label,
+        n: metaMap[k].n,
+        x: xPos,
+        y: curY,
+        h: h,
+        color: colorHex,
+        inOffset: 0,
+        outOffset: 0
+      };
+      curY += h + gap;
+    });
+    return nodes;
+  }
+
+  const dorNodes = layoutColumn(dorKeys, DOR_META_MAP, colX.dor, "#EA4335");
+  const tipNodes = layoutColumn(tipKeys, TIP_META_MAP, colX.tip, "#FBBC04");
+  const gemNodes = layoutColumn(gemKeys, GEM_META_MAP, colX.gem, "#4285F4");
+
+  const activeLinks1 = ALLUVIAL_DOR_TIP.filter(l => dorNodes[l.s] && tipNodes[l.t]);
+  const activeLinks2 = ALLUVIAL_TIP_GEM.filter(l => tipNodes[l.s] && gemNodes[l.t]);
+
+  let pathsHtml = "";
+
+  function makeCurve(x0, y0, x1, y1, thickness, color, sCode, tCode, countVal) {
+    const cX1 = x0 + (x1 - x0) * 0.45;
+    const cX2 = x0 + (x1 - x0) * 0.55;
+    const isHighlighted = !selectedTearNode || selectedTearNode === sCode || selectedTearNode === tCode;
+    const cls = selectedTearNode ? (isHighlighted ? "alluvial-link highlighted" : "alluvial-link dimmed") : "alluvial-link";
+    return `
+      <path class="${cls}"
+            tabindex="0"
+            role="button"
+            aria-label="Coocorrência por par ${sCode} e ${tCode}: ${countVal} registros na base"
+            d="M ${x0} ${y0} C ${cX1} ${y0}, ${cX2} ${y1}, ${x1} ${y1}"
+            stroke="${color}"
+            stroke-width="${Math.max(2.5, thickness)}"
+            onclick="selectTearCode('${sCode}', '${tCode}', ${countVal})"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectTearCode('${sCode}', '${tCode}', ${countVal});}">
+        <title>Par ${sCode} ↔ ${tCode}: ${countVal} registros com coocorrência na base</title>
+      </path>
+    `;
+  }
+
+  activeLinks1.forEach(l => {
+    const sNode = dorNodes[l.s];
+    const tNode = tipNodes[l.t];
+    const thick = Math.max(2.5, (l.v / 120) * 18);
+    const y0 = sNode.y + Math.min(sNode.h - thick / 2, sNode.outOffset + thick / 2);
+    const y1 = tNode.y + Math.min(tNode.h - thick / 2, tNode.inOffset + thick / 2);
+    sNode.outOffset += thick * 0.72;
+    tNode.inOffset += thick * 0.55;
+    const strokeCol = l.s === "DOR-00" ? "#9AA0A6" : "#EA4335";
+    pathsHtml += makeCurve(sNode.x + nodeW, y0, tNode.x, y1, thick, strokeCol, l.s, l.t, l.v);
+  });
+
+  activeLinks2.forEach(l => {
+    const sNode = tipNodes[l.s];
+    const tNode = gemNodes[l.t];
+    const thick = Math.max(2.5, (l.v / 280) * 26);
+    const y0 = sNode.y + Math.min(sNode.h - thick / 2, sNode.outOffset + thick / 2);
+    const y1 = tNode.y + Math.min(tNode.h - thick / 2, tNode.inOffset + thick / 2);
+    sNode.outOffset += thick * 0.72;
+    tNode.inOffset += thick * 0.72;
+    pathsHtml += makeCurve(sNode.x + nodeW, y0, tNode.x, y1, thick, "#4285F4", l.s, l.t, l.v);
+  });
+
+  function renderNodesGroup(nodesMap, align) {
+    return Object.values(nodesMap).map(n => {
+      const tx = align === "left" ? n.x - 8 : (align === "center" ? n.x + nodeW / 2 : n.x + nodeW + 8);
+      const anchor = align === "left" ? "end" : (align === "center" ? "middle" : "start");
+      const ty = align === "center" ? n.y - 6 : n.y + n.h / 2 - 2;
+      const fillCol = n.code === "DOR-00" ? "#80868B" : n.color;
+      return `
+        <g class="alluvial-node"
+           tabindex="0"
+           role="button"
+           aria-label="Selecionar nó ${n.label} com ${n.n} registros"
+           onclick="selectTearCode('${n.code}', null, ${n.n})"
+           onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectTearCode('${n.code}', null, ${n.n});}">
+          <rect x="${n.x}" y="${n.y}" width="${nodeW}" height="${n.h}" rx="4" fill="${fillCol}"></rect>
+          <text x="${tx}" y="${ty}" text-anchor="${anchor}">${n.label}</text>
+          ${align !== "center" ? `<text x="${tx}" y="${ty + 13}" text-anchor="${anchor}" class="node-sub">n = ${n.n}</text>` : ''}
+        </g>
+      `;
+    }).join("");
+  }
+
+  const headersHtml = `
+    <text x="${colX.dor}" y="18" text-anchor="end" style="font-family:var(--font-mono); font-size:11px; font-weight:700; fill:var(--red-dor);">1. DORES PRINCIPAIS (DOR)</text>
+    <text x="${colX.tip + nodeW/2}" y="18" text-anchor="middle" style="font-family:var(--font-mono); font-size:11px; font-weight:700; fill:var(--yellow-text);">2. PRÁTICA HUMANA (TIP)</text>
+    <text x="${colX.gem + nodeW + 8}" y="18" text-anchor="start" style="font-family:var(--font-mono); font-size:11px; font-weight:700; fill:var(--blue-gem);">3. PAPEL DA IA (GEM)</text>
+  `;
+
+  svg.innerHTML = headersHtml + pathsHtml +
+    renderNodesGroup(dorNodes, "left") +
+    renderNodesGroup(tipNodes, "center") +
+    renderNodesGroup(gemNodes, "right");
+
+  updateTearSelectionCards(selectedTearNode, null, null);
+}
+
+function selectTearCode(codeA, codeB, countVal) {
+  selectedTearNode = codeA;
+  renderAlluvialDiagram();
+  updateTearSelectionCards(codeA, codeB, countVal);
+}
+
+function updateTearSelectionCards(codeA, codeB, countVal) {
+  const titleEl = document.getElementById("tear-selection-title");
+  const cardsEl = document.getElementById("tear-selection-cards");
+
+  let filtered = EVIDENCE_RECORDS;
+  if (codeA && codeB) {
+    titleEl.textContent = `COOCORRÊNCIA POR PAR SELECIONADA: ${codeA} ↔ ${codeB} (${countVal} DE 713 REGISTROS NA BASE) — EXEMPLOS RASTREÁVEIS:`;
+    filtered = EVIDENCE_RECORDS.filter(r =>
+      (r.dor.includes(codeA) || r.tip.includes(codeA) || r.gem.includes(codeA)) &&
+      (r.dor.includes(codeB) || r.tip.includes(codeB) || r.gem.includes(codeB))
+    );
+  } else if (codeA) {
+    titleEl.textContent = `NÓ SELECIONADO NO MAPA: ${codeA} (${countVal} DE 713 REGISTROS NA BASE) — EXEMPLOS RASTREÁVEIS:`;
+    filtered = EVIDENCE_RECORDS.filter(r =>
+      r.dor.includes(codeA) || r.tip.includes(codeA) || r.gem.includes(codeA)
+    );
+  } else {
+    titleEl.textContent = "AMOSTRA DE REGISTROS COM COOCORRÊNCIA (SELECIONE QUALQUER NÓ OU PAR DE CONEXÃO NO DIAGRAMA ACIMA)";
+    filtered = EVIDENCE_RECORDS.slice(0, 3);
+  }
+
+  if (filtered.length === 0) {
+    filtered = EVIDENCE_RECORDS.filter(r => r.dor.includes(codeA) || r.tip.includes(codeA) || r.gem.includes(codeA)).slice(0, 3);
+  }
+
+  cardsEl.innerHTML = filtered.slice(0, 3).map(r => `
+    <div style="background:var(--surface); border:1px solid var(--border-subtle); border-top:3px solid var(--green-rel); border-radius:6px; padding:0.85rem; font-size:0.82rem;">
+      <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.3rem; font-family:var(--font-mono); font-size:0.72rem; margin-bottom:0.35rem;">
+        <strong>${r.id} (${r.cat})</strong>
+        <span class="code-chip chip-rel">${r.rel}</span>
+      </div>
+      <div style="margin-bottom:0.3rem;"><strong>Prática (${r.tip.join(",")}):</strong> ${r.tipText}</div>
+      <div style="color:var(--text-sec);"><strong>IA (${r.gem.join(",")}):</strong> ${r.gemText}</div>
+    </div>
+  `).join("");
+}
+
+// ============================================================================
+// 5. BLUEPRINTS INTERATIVOS (CAP 5)
+// ============================================================================
+function initBlueprints() {
+  const tabsEl = document.getElementById("blueprint-tabs");
+  tabsEl.innerHTML = BLUEPRINTS.map((b, i) => `
+    <button type="button" role="tab" class="bp-tab ${i === 0 ? 'active' : ''}"
+            aria-selected="${i === 0}"
+            data-bp-id="${b.id}"
+            onclick="selectBlueprint('${b.id}')">
+      ${b.id} • ${b.cat}
+    </button>
+  `).join("");
+
+  selectBlueprint(BLUEPRINTS[0].id);
+}
+
+function selectBlueprint(bpId) {
+  document.querySelectorAll("#blueprint-tabs .bp-tab").forEach(btn => {
+    const isSel = btn.getAttribute("data-bp-id") === bpId;
+    btn.classList.toggle("active", isSel);
+    btn.setAttribute("aria-selected", String(isSel));
+  });
+
+  const bp = BLUEPRINTS.find(x => x.id === bpId);
+  const container = document.getElementById("blueprint-content");
+
+  container.innerHTML = `
+    <div style="background:var(--bg-paper); border:1px solid var(--border-subtle); border-radius:8px; padding:1.15rem;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.5rem;">
+        <h3 style="font-size:1.05rem; color:var(--text-main);">${bp.id} — ${bp.title}</h3>
+        <div style="display:flex; gap:0.4rem; flex-wrap:wrap;">
+          <span class="code-chip chip-gem">${bp.meta}</span>
+          <span class="code-chip chip-rel">${bp.rel}</span>
+          ${bp.trunc ? `<span class="code-chip chip-trunc">Sinalização de Corte na Origem (400/350 chars)</span>` : ''}
+        </div>
+      </div>
+
+      <div class="blueprint-stage">
+        <div class="bp-step" style="background:var(--surface); border-top:3px solid var(--yellow-tip);">
+          <span class="bp-step-tag" style="background:var(--yellow-bg); color:var(--yellow-text);">1. Decisão &amp; Entrada Humana (Tip)</span>
+          <p style="font-size:0.85rem; color:var(--text-main);">${bp.step1}</p>
+        </div>
+        <div class="bp-step" style="background:var(--surface); border-top:3px solid var(--blue-gem);">
+          <span class="bp-step-tag" style="background:var(--blue-bg); color:var(--blue-gem);">2. Comando &amp; Papel da IA (Gemini)</span>
+          <p style="font-size:0.85rem; color:var(--text-main);">${bp.step2}</p>
+        </div>
+        <div class="bp-step" style="background:var(--surface); border-top:3px solid var(--green-rel);">
+          <span class="bp-step-tag" style="background:var(--green-bg); color:var(--green-rel);">3. Saída &amp; Encaixe na Rotina</span>
+          <p style="font-size:0.85rem; color:var(--text-main);">${bp.step3}</p>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// ============================================================================
+// 6. HERO C — FICHÁRIO VIVO DE EVIDÊNCIAS (PESQUISÁVEL E FILTRÁVEL)
+// ============================================================================
+let activeFicharioPill = "ALL";
+
+function initFichario() {
+  const searchInput = document.getElementById("fichario-search");
+  const catSelect = document.getElementById("fichario-cat");
+  const resetBtn = document.getElementById("fichario-reset");
+  const pills = document.querySelectorAll("#fichario-pills .filter-pill");
+
+  searchInput.addEventListener("input", renderFicharioCards);
+  catSelect.addEventListener("change", renderFicharioCards);
+
+  pills.forEach(p => {
+    p.addEventListener("click", () => {
+      pills.forEach(b => {
+        b.classList.remove("active");
+        b.setAttribute("aria-pressed", "false");
+      });
+      p.classList.add("active");
+      p.setAttribute("aria-pressed", "true");
+      activeFicharioPill = p.getAttribute("data-pill");
+      renderFicharioCards();
+    });
+  });
+
+  resetBtn.addEventListener("click", () => {
+    searchInput.value = "";
+    catSelect.value = "ALL";
+    activeFicharioPill = "ALL";
+    pills.forEach(b => {
+      const isAll = b.getAttribute("data-pill") === "ALL";
+      b.classList.toggle("active", isAll);
+      b.setAttribute("aria-pressed", String(isAll));
+    });
+    renderFicharioCards();
+  });
+
+  renderFicharioCards();
+}
+
+function filterFicharioByCategory(catName) {
+  const catSelect = document.getElementById("fichario-cat");
+  catSelect.value = catName;
+  renderFicharioCards();
+  document.getElementById("fichario").scrollIntoView({ behavior: "smooth" });
+}
+
+function renderFicharioCards() {
+  const q = document.getElementById("fichario-search").value.trim().toLowerCase();
+  const cat = document.getElementById("fichario-cat").value;
+  const gridEl = document.getElementById("fichario-grid");
+  const countBar = document.getElementById("fichario-count-bar");
+
+  const filtered = EVIDENCE_RECORDS.filter(r => {
+    if (cat !== "ALL" && r.cat !== cat) return false;
+
+    if (activeFicharioPill !== "ALL") {
+      if (activeFicharioPill === "TRUNC" && !r.trunc) return false;
+      if (activeFicharioPill !== "TRUNC") {
+        const hasCode = r.dor.includes(activeFicharioPill) ||
+                        r.tip.includes(activeFicharioPill) ||
+                        r.gem.includes(activeFicharioPill) ||
+                        r.ctx === activeFicharioPill;
+        if (!hasCode) return false;
+      }
+    }
+
+    if (q) {
+      const hay = `${r.id} ${r.cat} ${r.tipText} ${r.gemText} ${r.dor.join(" ")} ${r.tip.join(" ")} ${r.gem.join(" ")} ${r.ctx} ${r.meta}`.toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  countBar.textContent = `Exibindo ${filtered.length} de ${EVIDENCE_RECORDS.length} fichas curadas verificadas (Corpus estrutural: N = 713 registros no mural).`;
+
+  if (filtered.length === 0) {
+    gridEl.innerHTML = `
+      <div class="empty-state" style="grid-column: 1 / -1;">
+        <p style="font-weight:600; margin-bottom:0.4rem;">Nenhum registro encontrado para esta combinação de filtros.</p>
+        <p style="font-size:0.84rem;">Experimente limpar a busca textual ou alternar a pílula temática acima.</p>
+      </div>
+    `;
+    return;
+  }
+
+  gridEl.innerHTML = filtered.map(r => `
+    <article class="evidence-card" aria-label="Registro ${r.id} da categoria ${r.cat}">
+      <div class="ev-header">
+        <span class="ev-id">${r.id}</span>
+        <span class="ev-cat">${r.cat}</span>
+        <div style="display:flex; gap:0.25rem; flex-wrap:wrap;">
+          ${r.dor.map(d => `<span class="code-chip chip-dor">${d}</span>`).join("")}
+          ${r.trunc ? `<span class="code-chip chip-trunc" title="Campo atingiu limite de 400/350 caracteres na origem">Corte na origem</span>` : ''}
+        </div>
+      </div>
+      <div class="ev-block tip-block">
+        <div class="ev-block-label">
+          <span>Estratégia Humana (Tip)</span>
+          ${r.tip.map(t => `<span class="code-chip chip-tip">${t}</span>`).join("")}
+        </div>
+        <div>${r.tipText}</div>
+      </div>
+
+      <div class="ev-block gem-block">
+        <div class="ev-block-label">
+          <span>Papel da IA (Gemini)</span>
+          ${r.gem.map(g => `<span class="code-chip chip-gem">${g}</span>`).join("")}
+        </div>
+        <div>${r.gemText}</div>
+      </div>
+
+      <div class="ev-footer">
+        <span>Estatuto: <strong>${r.meta}</strong></span>
+        <span>Vínculo: <strong>${r.rel}</strong></span>
+        <span>Contexto: <strong>${r.ctx}</strong></span>
+      </div>
+    </article>
+  `).join("");
+}
+
+function initScrollSpyNav() {
+  const sections = document.querySelectorAll("main section[id], footer[id]");
+  const navLinks = document.querySelectorAll(".top-nav .nav-links a");
+
+  function updateActiveNav() {
+    let currentId = "";
+    const scrollPos = window.scrollY + 140;
+
+    sections.forEach(sec => {
+      if (scrollPos >= sec.offsetTop) {
+        currentId = sec.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      const href = link.getAttribute("href");
+      const isMatch = href === `#${currentId}`;
+      link.classList.toggle("active-link", isMatch);
+    });
+  }
+
+  window.addEventListener("scroll", updateActiveNav, { passive: true });
+  updateActiveNav();
+}
+
+window.onload = function () {
+  initChapter1();
+  initMatrix();
+  initChapter3();
+  initAlluvialTear();
+  initBlueprints();
+  initFichario();
+  initScrollSpyNav();
+};
+</script>
+</body>
+</html>
