@@ -6,7 +6,7 @@
 
 **Um experimento de análise qualitativa, visualização de dados e storytelling interativo**
 
-[![Abrir observatório](https://img.shields.io/badge/Explorar-observat%C3%B3rio-4285F4?style=for-the-badge)](https://sites.google.com/view/observatorio-embaixadores-2026/full-page-embed)
+[![Mural oficial](https://img.shields.io/badge/Acessar-Mural%20oficial-4285F4?style=for-the-badge)](https://mural-embaixadores-br.web.app)
 [![Autor](https://img.shields.io/badge/Autor-Eric%20Pimentel-34A853?style=for-the-badge)](https://github.com/enps2015)
 
 **Eric Pimentel** · Embaixador Estudantil Google Brasil 2026 · Belém, Pará — 2026
@@ -25,7 +25,7 @@ A ideia não foi criar apenas mais um dashboard. Foi transformar uma análise em
 
 > **A pergunta central:** como a Inteligência Artificial pode apoiar a aprendizagem e a organização acadêmica sem retirar o protagonismo de quem aprende?
 
-🔗 **[Explore a aplicação publicada no Google Sites](https://sites.google.com/view/observatorio-embaixadores-2026/full-page-embed)**
+🔗 **[Acesse o Mural oficial dos Embaixadores](https://mural-embaixadores-br.web.app)**
 
 > **Nota:** esta é uma iniciativa autoral desenvolvida no contexto da participação no programa Embaixadores Estudantis Google Brasil 2026. Não é uma publicação institucional oficial do Google.
 
@@ -121,7 +121,7 @@ git clone https://github.com/enps2015/observatorio-embaixadores-google-2026.git
 cd observatorio-embaixadores-google-2026
 ```
 
-> **Estado dos arquivos:** o repositório está em fase de publicação. A instrução acima pressupõe que o HTML da aplicação já tenha sido adicionado à raiz. Consulte a lista de arquivos do repositório para confirmar o nome do arquivo de entrada.
+> O arquivo principal da aplicação está disponível como `index.html` na raiz do repositório. Basta abrir esse arquivo em um navegador para explorar a versão estática localmente.
 
 ## 🌐 Publicar com GitHub Pages
 
@@ -141,7 +141,7 @@ Esse endereço é o formato esperado para um site de projeto; só deve ser divul
 
 ## 📁 Estrutura sugerida do repositório
 
-À medida que os arquivos forem adicionados, uma organização simples ajuda a manter o projeto compreensível:
+O repositório está organizado para separar a aplicação, as capturas de tela e a documentação do experimento:
 
 ```text
 observatorio-embaixadores-google-2026/
